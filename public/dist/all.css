@@ -10,5 +10,11 @@
   .home-page-title p {
     margin: 50px; }
   .home-page-title button {
-    background-color: #2aabe2; }
+    background-color: #2aabe2;
+    height: 70px;
+    width: 200px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    color: white;
+    font-size: 24px; }
 
