@@ -10,6 +10,7 @@ angular.module('group-project', ['ui.router']).config(function ($stateProvider, 
 });
 'use strict';
 
+
 angular.module('group-project').service('flashCardSvc', function ($http) {
     this.getJavascriptBasic = function () {
         return $http({
@@ -33,6 +34,7 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
     $scope.recJsBasicData();
     $scope.test = 'working';
 });
+
 'use strict';
 
 angular.module('group-project').controller('mainCtrl', function ($scope, mainSvc) {});

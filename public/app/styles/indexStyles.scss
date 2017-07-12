@@ -1,0 +1,38 @@
+$dev-mtn-blue: #2aabe2;
+$nav-background-color: #444444;
+
+body{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.navbar {
+    background-color: #444444;
+    height: 15vh;
+    width: 100vw;
+    border: black solid 1px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo {
+    width: 15vw;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+    img{
+        width: auto;
+        height: 100%;
+    }
+}
+
+.pagelinks{
+    display: flex;
+    flex-direction: row;
+    padding-right: 20px;
+    font-size: 20px;
+}
+
