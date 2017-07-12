@@ -14,6 +14,13 @@ $dev-mtn-blue: #2aabe2;
         margin: 50px;
     }
     button{
-        background-color: $dev-mtn-blue;
+        background-color: #2aabe2;
+        height: 70px;
+        width: 200px;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        color: white;
+        font-size: 24px;
+        border: none;
     }
 }
