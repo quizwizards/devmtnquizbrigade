@@ -1,2 +1,14 @@
 $dev-mtn-blue: #2aabe2;
 $nav-background-color: #444444;
+
+.navbar {
+    background-color: #444444;
+    height: 15vh;
+    width: 100vw;
+    border: black solid 1px;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+}
