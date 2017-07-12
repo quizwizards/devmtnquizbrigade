@@ -1,0 +1,14 @@
+.home-page-title {
+  background: url("../app/assets/devmountain_class_pic.jpg") no-repeat;
+  width: 100vw;
+  height: 50vh;
+  border: solid black 1px;
+  color: white;
+  text-align: center; }
+  .home-page-title h1 {
+    font-weight: 900; }
+  .home-page-title p {
+    margin: 50px; }
+  .home-page-title button {
+    background-color: #2aabe2; }
+
