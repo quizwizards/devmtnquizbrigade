@@ -1,7 +1,16 @@
-.navbar {
-  background-color: #444444;
-  height: 100%;
-  width: 100%; }
+.home-page-title {
+  background: url("../app/assets/devmountain_class_pic.jpg") no-repeat;
+  width: 100vw;
+  height: 50vh;
+  border: solid black 1px;
+  color: white;
+  text-align: center; }
+  .home-page-title h1 {
+    font-weight: 900; }
+  .home-page-title p {
+    margin: 50px; }
+  .home-page-title button {
+    background-color: #2aabe2; }
 
 .navbar {
   background-color: #444444;
@@ -12,9 +21,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
@@ -22,3 +31,27 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center; }
+
+.logo {
+  width: 15vw;
+  height: 50px;
+  border: red solid 1px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row; }
+  .logo img {
+    width: auto;
+    height: 100%; }
+
+.pagelinks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row; }

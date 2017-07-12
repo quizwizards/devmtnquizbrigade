@@ -1,0 +1,19 @@
+$dev-mtn-blue: #2aabe2;
+
+.home-page-title{
+    background: url("../app/assets/devmountain_class_pic.jpg") no-repeat;
+    width: 100vw;
+    height: 50vh;
+    border: solid black 1px;
+    color: white;
+    text-align: center;
+    h1{
+    font-weight: 900;
+    }
+    p{
+        margin: 50px;
+    }
+    button{
+        background-color: $dev-mtn-blue;
+    }
+}
