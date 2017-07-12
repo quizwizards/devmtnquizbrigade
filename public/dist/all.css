@@ -12,6 +12,9 @@
   .home-page-title button {
     background-color: #2aabe2; }
 
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
 .navbar {
   background-color: #444444;
   height: 15vh;
@@ -35,14 +38,14 @@
 .logo {
   width: 15vw;
   height: 50px;
-  border: red solid 1px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
-  flex-direction: row; }
+  flex-direction: row;
+  padding-left: 10px; }
   .logo img {
     width: auto;
     height: 100%; }
@@ -54,4 +57,6 @@
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
-  flex-direction: row; }
+  flex-direction: row;
+  padding-right: 20px;
+  font-size: 20px; }

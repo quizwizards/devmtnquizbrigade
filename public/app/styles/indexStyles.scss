@@ -1,6 +1,10 @@
 $dev-mtn-blue: #2aabe2;
 $nav-background-color: #444444;
 
+body{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 .navbar {
     background-color: #444444;
     height: 15vh;
@@ -11,15 +15,14 @@ $nav-background-color: #444444;
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
-
 }
 
 .logo {
     width: 15vw;
     height: 50px;
-    border: red solid 1px;
     display: flex;
     flex-direction: row;
+    padding-left: 10px;
     img{
         width: auto;
         height: 100%;
@@ -29,4 +32,7 @@ $nav-background-color: #444444;
 .pagelinks{
     display: flex;
     flex-direction: row;
+    padding-right: 20px;
+    font-size: 20px;
 }
+
