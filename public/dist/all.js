@@ -10,7 +10,7 @@ angular.module('group-project', ['ui.router']).config(function ($stateProvider, 
 });
 'use strict';
 
-angular.module('group-project').controller('mainCtrl', function ($scope, mainSvc) {});
+angular.module('group-project').service('mainSvc', function () {});
 'use strict';
 
-angular.module('group-project').service('mainSvc', function () {});
+angular.module('group-project').controller('mainCtrl', function ($scope, mainSvc) {});
