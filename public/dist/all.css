@@ -2,14 +2,27 @@
   background: url("../app/assets/devmountain_class_pic.jpg") no-repeat;
   background-size: 100%;
   width: 100%;
-  height: 65vh;
+  height: 47vh;
   border: solid black 1px;
   color: white;
-  text-align: center; }
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
   .home-page-title h1 {
-    font-weight: 900; }
+    font-weight: 300;
+    margin-top: 65px;
+    font-size: 2.5em; }
   .home-page-title p {
-    width: 50vw; }
+    width: 50vw;
+    font-size: 16px; }
   .home-page-title button {
     background-color: #2aabe2;
     height: 70px;
@@ -18,7 +31,18 @@
     box-shadow: none;
     color: white;
     font-size: 24px;
-    border: none; }
+    border: none;
+    margin-top: 45px; }
+
+.about-section-main-wrapper h1 {
+  line-height: 1px;
+  border-bottom: 2px solid whitesmoke;
+  text-align: center;
+  margin-top: 120px;
+  color: gray; }
+  .about-section-main-wrapper h1 span {
+    background: white;
+    padding: 18px; }
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
