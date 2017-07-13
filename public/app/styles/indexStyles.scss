@@ -23,10 +23,22 @@ body{
     display: flex;
     flex-direction: row;
     padding-left: 10px;
+    align-items: center;
+    font-size: 30px
     img{
         width: auto;
         height: 100%;
     }
+}
+
+.linkeffect {
+    transition: 0.4s;
+}
+
+.linkeffect:hover {
+    background-color: #fff;
+    color: #444444;
+    padding: 24px 10px;
 }
 
 .pagelinks{
