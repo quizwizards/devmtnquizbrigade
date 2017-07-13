@@ -1,3 +1,30 @@
+.card-slider-display-main {
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
+.card-with-arrows {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: solid black 1px; }
+  .card-with-arrows div {
+    height: 50vh;
+    width: 50vw;
+    border: solid black 1px; }
+
 
 .home-page-title {
   background: url("../app/assets/devmountain_class_pic.jpg") no-repeat;
