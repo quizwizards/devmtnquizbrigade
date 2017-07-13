@@ -6,6 +6,9 @@ angular.module('group-project', ['ui.router']).config(function ($stateProvider, 
     $stateProvider.state('home', {
         url: '/',
         templateUrl: './app/views/home.html'
+    }).state('getstarted', {
+        url: '/getstarted',
+        templateUrl: './app/views/getstarted.html'
     });
 });
 'use strict';
