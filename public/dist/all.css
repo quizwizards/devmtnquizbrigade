@@ -1,3 +1,71 @@
+.get-started-main {
+  background: url("../app/assets/dev-mtn-background.jpg") no-repeat fixed;
+  background-size: cover;
+  width: 100vw;
+  height: 50vh;
+  color: white;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row; }
+
+p {
+  margin: 50px; }
+
+button {
+  background-color: #2aabe2;
+  height: 50px;
+  width: 100px;
+  color: white;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: none;
+  font-size: 20px; }
+
+.side-nav {
+  background: red;
+  width: 10%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row; }
+  .side-nav ul {
+    padding-left: 30px; }
+  .side-nav li {
+    padding: 5px 0;
+    list-style: none;
+    border: black; }
+
+.instructions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+
 .home-page-title {
   background: url("../app/assets/devmountain_class_pic.jpg") no-repeat;
   width: 100vw;
@@ -56,9 +124,10 @@ body {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 30px img;
-    font-size-width: auto;
-    font-size-height: 100%; }
+  font-size: 30px; }
+  .logo img {
+    width: auto;
+    height: 100%; }
 
 .linkeffect {
   -webkit-transition: 0.4s;
