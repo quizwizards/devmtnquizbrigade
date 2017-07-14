@@ -5,7 +5,7 @@ const config = require('./config');
 const app = module.exports = express();
 const cors = require('cors');
 const axios = require('axios')
-const {getJSAll} = require('./Controllers/apiController.js');
+const {getJSAll, getCss, getHtml} = require('./Controllers/apiController.js');
 
 app.set('port', process.env.PORT || 3000)
 
@@ -14,7 +14,11 @@ app.use(cors());
 
 app.use(express.static(__dirname + './../public'));
 
-app.get('/api/getJSBasic', getJSAll)
+app.get('/api/getJSAll', getJSAll);
+
+app.get('/api/getCss', getCss);
+
+app.get('/api/getHtml', getHtml);
 
 
 
