@@ -1,0 +1,18 @@
+.card-slider-display-main{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.card-with-arrows{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: solid black 1px;
+   div{
+        height: 50vh;
+        width: 50vw;
+        border: solid black 1px;
+   }
+}

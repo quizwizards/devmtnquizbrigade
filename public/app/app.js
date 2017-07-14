@@ -10,5 +10,9 @@ angular.module('group-project', ['ui.router']).config(function($stateProvider, $
             url: '/getstarted',
             templateUrl: './app/views/getstarted.html'
         })
+        .state('flashCards', {
+            url: '/flash-cards',
+            templateUrl: './app/views/flashCards.html'
+        })
         
 })
