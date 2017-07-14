@@ -9,19 +9,35 @@ angular.module('group-project', ['ui.router']).config(function ($stateProvider, 
     }).state('getstarted', {
         url: '/getstarted',
         templateUrl: './app/views/getstarted.html'
+    }).state('test', {
+        url: '/test',
+        templateUrl: './app/views/test.html',
+        controller: 'flashCardCtrl'
     });
 });
 'use strict';
 
 angular.module('group-project').controller('flashCardCtrl', function ($scope, flashCardSvc) {
     $scope.recJsBasicData = function () {
-        flashCardSvc.getJavascriptBasic().then(function (response) {
-            console.log(response.data.terms);
-            $scope.data = response.data.terms;
+        flashCardSvc.getJavascriptAll().then(function (response) {
+            $scope.data = response;
         });
     };
     $scope.recJsBasicData();
-    $scope.test = 'working';
+
+    $scope.recCssData = function () {
+        flashCardSvc.getCss().then(function (response) {
+            $scope.cssData = response.data.terms;
+        });
+    };
+    $scope.recCssData();
+
+    $scope.recHtmlData = function () {
+        flashCardSvc.getHtml().then(function (response) {
+            $scope.htmlData = response.data.terms;
+        });
+    };
+    $scope.recHtmlData();
 });
 'use strict';
 
@@ -29,9 +45,21 @@ angular.module('group-project').controller('mainCtrl', function ($scope, mainSvc
 'use strict';
 
 angular.module('group-project').service('flashCardSvc', function ($http) {
-    this.getJavascriptBasic = function () {
+    this.getJavascriptAll = function () {
         return $http({
-            url: '/api/getJSBasic',
+            url: '/api/getJSAll',
+            method: 'GET'
+        });
+    };
+    this.getCss = function () {
+        return $http({
+            url: '/api/getCss',
+            method: 'GET'
+        });
+    };
+    this.getHtml = function () {
+        return $http({
+            url: '/api/getHtml',
             method: 'GET'
         });
     };

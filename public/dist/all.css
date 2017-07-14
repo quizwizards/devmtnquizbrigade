@@ -57,9 +57,10 @@ body {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  font-size: 30px img;
-    font-size-width: auto;
-    font-size-height: 100%; }
+  font-size: 30px; }
+  .logo img {
+    width: auto;
+    height: 100%; }
 
 .linkeffect {
   -webkit-transition: 0.4s;
