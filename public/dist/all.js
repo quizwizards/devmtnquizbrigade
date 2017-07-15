@@ -43,6 +43,13 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
 angular.module('group-project').controller('mainCtrl', function ($scope, mainSvc) {});
 'use strict';
 
+angular.module('group-project').directive('flashCards', function () {
+    return {
+        templateUrl: './app/directives/flashCards-tmpl.html'
+    };
+});
+'use strict';
+
 angular.module('group-project').service('flashCardSvc', function ($http) {
     this.getJavascriptAll = function () {
         return $http({
