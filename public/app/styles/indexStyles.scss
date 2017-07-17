@@ -5,6 +5,10 @@ body{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+ul {
+    padding: 15px;
+}
+
 .navbar {
     background-color: #444444;
     height: 15vh;
@@ -18,11 +22,11 @@ body{
 }
 
 .logo {
-    width: 15vw;
+    width: 33vw;
     height: 50px;
     display: flex;
     flex-direction: row;
-    padding-left: 10px;
+    padding-left: 15px;
     align-items: center;
     font-size: 30px;
     img{
