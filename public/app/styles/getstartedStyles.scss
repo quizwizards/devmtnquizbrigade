@@ -18,6 +18,12 @@ p {
     margin: 50px;
 }
 
+a {
+    padding: 5px;
+    text-decoration: none;
+    color: white;
+}
+
 button {
     background-color: #2aabe2;
     height: 50px;
@@ -32,15 +38,21 @@ button {
     background: red;
     width: 10%;
     display: flex;
-    flex-direction: row;
-     ul {
-        padding-left: 30px;
-     }
+    flex-direction: column;
+        ul{
+            padding: 0px;
+        }
         li{
             padding: 5px 0;
             list-style: none;
             border: black;
         }
+}
+
+.sub-menu {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .instructions {
