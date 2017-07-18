@@ -17,13 +17,64 @@ angular.module('group-project', ['ui.router']).config(function ($stateProvider, 
 });
 'use strict';
 
+angular.module('group-project').service('flashCardSvc', function ($http) {
+    this.getJavascriptAll = function () {
+        return $http({
+            url: '/api/getJSAll',
+            method: 'GET'
+        });
+    };
+    this.getJavascriptBasic = function () {
+        return $http({
+            url: '/api/getJSBasic',
+            method: 'GET'
+        });
+    };
+    this.getJavascriptAdvanced = function () {
+        return $http({
+            url: '/api/getJSAdvanced',
+            method: 'GET'
+        });
+    };
+    this.getCss = function () {
+        return $http({
+            url: '/api/getCss',
+            method: 'GET'
+        });
+    };
+    this.getHtml = function () {
+        return $http({
+            url: '/api/getHtml',
+            method: 'GET'
+        });
+    };
+});
+'use strict';
+
+angular.module('group-project').service('mainSvc', function () {});
+'use strict';
+
 angular.module('group-project').controller('flashCardCtrl', function ($scope, flashCardSvc) {
-    $scope.recJsBasicData = function () {
+    $scope.recJsAllData = function () {
         flashCardSvc.getJavascriptAll().then(function (response) {
-            $scope.data = response;
+            $scope.jsAllData = response;
+        });
+    };
+    $scope.recJsAllData();
+
+    $scope.recJsBasicData = function () {
+        flashCardSvc.getJavascriptBasic().then(function (response) {
+            $scope.jsBasicData = response;
         });
     };
     $scope.recJsBasicData();
+
+    $scope.recJsAdvancedData = function () {
+        flashCardSvc.getJavascriptAdvanced().then(function (response) {
+            $scope.jsAdvancedData = response;
+        });
+    };
+    $scope.recJsAdvancedData();
 
     $scope.recCssData = function () {
         flashCardSvc.getCss().then(function (response) {
@@ -50,28 +101,3 @@ angular.module('group-project').controller('mainCtrl', function ($scope, mainSvc
         $scope.showSubMenu = !$scope.showSubMenu;
     };
 });
-'use strict';
-
-angular.module('group-project').service('flashCardSvc', function ($http) {
-    this.getJavascriptAll = function () {
-        return $http({
-            url: '/api/getJSAll',
-            method: 'GET'
-        });
-    };
-    this.getCss = function () {
-        return $http({
-            url: '/api/getCss',
-            method: 'GET'
-        });
-    };
-    this.getHtml = function () {
-        return $http({
-            url: '/api/getHtml',
-            method: 'GET'
-        });
-    };
-});
-'use strict';
-
-angular.module('group-project').service('mainSvc', function () {});
