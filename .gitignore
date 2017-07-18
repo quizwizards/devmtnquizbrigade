@@ -1,6 +1,7 @@
 node_modules
 config.js
-/public/dist/**
+./public/dist/**
+
 .env
 .DS_Store
 
