@@ -6,7 +6,11 @@
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center; }
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: whitesmoke; }
 
 .card-with-arrows {
   display: -webkit-box;
@@ -16,14 +20,61 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  width: 70vw; }
+  .card-with-arrows button {
+    background-color: whitesmoke;
+    color: #2aabe2;
+    width: 75px;
+    height: 50px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: none;
+    border-radius: 2px;
+    margin-top: 183px; }
+
+#card-wrapper {
+  height: 62vh;
+  width: 60vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center;
-  border: solid black 1px; }
-  .card-with-arrows div {
-    height: 50vh;
-    width: 50vw;
-    border: solid black 1px; }
+  align-items: center; }
+
+#card-display {
+  height: 50vh;
+  width: 50vw;
+  border: solid black 1px;
+  background-color: white; }
+
+#button-wrapper {
+  color: white;
+  width: 50vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+  #button-wrapper #x {
+    background-color: #2aabe2;
+    color: white;
+    height: 50px;
+    width: 50px;
+    margin: 25px; }
+  #button-wrapper #plus {
+    background-color: #2aabe2;
+    color: white;
+    margin: 25px;
+    height: 50px;
+    width: 50px; }
 
 .get-started-main {
   background: url("../app/assets/dev-mtn-background.jpg") no-repeat fixed;
@@ -66,21 +117,29 @@ button {
   font-size: 20px; }
 
 .side-nav {
-  background: red;
-  width: 10%;
+  background: #202020;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
-  flex-direction: column; }
+  flex-direction: column;
+  padding: 20px;
+  height: 100%; }
   .side-nav ul {
-    padding: 0px; }
-  .side-nav li {
-    padding: 5px 0;
+    padding: 0px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .side-nav a {
+    padding: 15px 0;
     list-style: none;
-    border: black; }
+    border-bottom: 1px solid #444444; }
 
 .sub-menu {
   display: -webkit-box;
@@ -92,7 +151,9 @@ button {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
-  flex-direction: column; }
+  flex-direction: column;
+  -webkit-transition: .5s;
+  transition: .5s; }
 
 .instructions {
   display: -webkit-box;

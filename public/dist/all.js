@@ -17,43 +17,6 @@ angular.module('group-project', ['ui.router']).config(function ($stateProvider, 
 });
 'use strict';
 
-angular.module('group-project').service('flashCardSvc', function ($http) {
-    this.getJavascriptAll = function () {
-        return $http({
-            url: '/api/getJSAll',
-            method: 'GET'
-        });
-    };
-    this.getJavascriptBasic = function () {
-        return $http({
-            url: '/api/getJSBasic',
-            method: 'GET'
-        });
-    };
-    this.getJavascriptAdvanced = function () {
-        return $http({
-            url: '/api/getJSAdvanced',
-            method: 'GET'
-        });
-    };
-    this.getCss = function () {
-        return $http({
-            url: '/api/getCss',
-            method: 'GET'
-        });
-    };
-    this.getHtml = function () {
-        return $http({
-            url: '/api/getHtml',
-            method: 'GET'
-        });
-    };
-});
-'use strict';
-
-angular.module('group-project').service('mainSvc', function () {});
-'use strict';
-
 angular.module('group-project').controller('flashCardCtrl', function ($scope, flashCardSvc) {
     $scope.recJsAllData = function () {
         flashCardSvc.getJavascriptAll().then(function (response) {
@@ -101,3 +64,61 @@ angular.module('group-project').controller('mainCtrl', function ($scope, mainSvc
         $scope.showSubMenu = !$scope.showSubMenu;
     };
 });
+'use strict';
+
+angular.module('group-project').directive('flashCards', function () {
+    return {
+        templateUrl: './app/directives/flashCards-tmpl.html'
+    };
+});
+'use strict';
+
+angular.module('group-project').directive('getStarted', function () {
+    return {
+        templateUrl: './app/directives/getStarted-tmpl.html'
+    };
+});
+'use strict';
+
+angular.module('group-project').directive('sidenav', function () {
+    return {
+        templateUrl: './app/directives/sideNavtmpl.html'
+    };
+});
+'use strict';
+
+angular.module('group-project').service('flashCardSvc', function ($http) {
+    this.getJavascriptAll = function () {
+        return $http({
+            url: '/api/getJSAll',
+            method: 'GET'
+        });
+    };
+    this.getJavascriptBasic = function () {
+        return $http({
+            url: '/api/getJSBasic',
+            method: 'GET'
+        });
+    };
+    this.getJavascriptAdvanced = function () {
+        return $http({
+            url: '/api/getJSAdvanced',
+            method: 'GET'
+        });
+    };
+    this.getCss = function () {
+        return $http({
+            url: '/api/getCss',
+            method: 'GET'
+        });
+    };
+    this.getHtml = function () {
+        return $http({
+            url: '/api/getHtml',
+            method: 'GET'
+        });
+    };
+});
+'use strict';
+
+angular.module('group-project').service('mainSvc', function () {});
