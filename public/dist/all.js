@@ -8,7 +8,12 @@ angular.module('group-project', ['ui.router']).config(function ($stateProvider, 
         templateUrl: './app/views/home.html'
     }).state('getstarted', {
         url: '/getstarted',
+<<<<<<< HEAD
         templateUrl: './app/views/getstarted.html'
+=======
+        templateUrl: './app/views/getstarted.html',
+        controller: 'mainCtrl'
+>>>>>>> master
     }).state('flashCards', {
         url: '/flash-cards',
         templateUrl: './app/views/flashCards.html'
@@ -40,12 +45,22 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
 });
 'use strict';
 
+<<<<<<< HEAD
 angular.module('group-project').controller('mainCtrl', function ($scope, mainSvc) {});
 'use strict';
 
 angular.module('group-project').directive('flashCards', function () {
     return {
         templateUrl: './app/directives/flashCards-tmpl.html'
+=======
+angular.module('group-project').controller('mainCtrl', function ($scope, mainSvc) {
+
+    $scope.showSubMenu = false;
+    console.log($scope.showSubMenu);
+
+    $scope.showMenu = function () {
+        $scope.showSubMenu = !$scope.showSubMenu;
+>>>>>>> master
     };
 });
 'use strict';

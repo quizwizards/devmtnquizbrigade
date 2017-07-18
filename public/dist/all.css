@@ -6,11 +6,15 @@
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
+<<<<<<< HEAD
   align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
   background-color: whitesmoke; }
+=======
+  align-items: center; }
+>>>>>>> master
 
 .card-with-arrows {
   display: -webkit-box;
@@ -20,6 +24,7 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
+<<<<<<< HEAD
   -ms-flex-pack: distribute;
   justify-content: space-around;
   width: 70vw; }
@@ -37,12 +42,67 @@
 #card-wrapper {
   height: 62vh;
   width: 60vw;
+=======
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: solid black 1px; }
+  .card-with-arrows div {
+    height: 50vh;
+    width: 50vw;
+    border: solid black 1px; }
+
+.get-started-main {
+  background: url("../app/assets/dev-mtn-background.jpg") no-repeat fixed;
+  background-size: cover;
+  width: 100vw;
+  height: 50vh;
+  color: white;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row; }
+
+p {
+  margin: 50px; }
+
+a {
+  padding: 5px;
+  text-decoration: none;
+  color: white; }
+
+button {
+  background-color: #2aabe2;
+  height: 50px;
+  width: 100px;
+  color: white;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: none;
+  font-size: 20px; }
+
+.side-nav {
+  background: red;
+  width: 10%;
+>>>>>>> master
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
+<<<<<<< HEAD
   flex-direction: column;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -76,6 +136,43 @@
     height: 50px;
     width: 50px; }
 
+=======
+  flex-direction: column; }
+  .side-nav ul {
+    padding: 0px; }
+  .side-nav li {
+    padding: 5px 0;
+    list-style: none;
+    border: black; }
+
+.sub-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
+.instructions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+>>>>>>> master
 
 .home-page-title {
   background: url("../app/assets/devmountain_class_pic.jpg") no-repeat;
@@ -162,6 +259,12 @@
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
+<<<<<<< HEAD
+=======
+ul {
+  padding: 15px; }
+
+>>>>>>> master
 .navbar {
   background-color: #444444;
   height: 15vh;
@@ -183,7 +286,11 @@ body {
   align-items: center; }
 
 .logo {
+<<<<<<< HEAD
   width: 15vw;
+=======
+  width: 33vw;
+>>>>>>> master
   height: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -192,7 +299,11 @@ body {
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
+<<<<<<< HEAD
   padding-left: 10px;
+=======
+  padding-left: 15px;
+>>>>>>> master
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
