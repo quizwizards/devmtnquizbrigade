@@ -1,5 +1,5 @@
 angular.module('group-project')
-.directive('sidenav', function(){
+.directive('sideNav', function(){
     return {
         templateUrl: './app/directives/sideNavtmpl.html'
     }

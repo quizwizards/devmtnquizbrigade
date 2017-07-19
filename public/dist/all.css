@@ -256,6 +256,9 @@ button {
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
+a {
+  padding: 15px; }
+
 ul {
   padding: 15px; }
 
