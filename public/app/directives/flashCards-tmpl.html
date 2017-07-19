@@ -1,21 +1,28 @@
 <div class='card-slider-display-main'>
-    <div class='card-with-arrows'>
-        <button><i class="fa fa-chevron-left fa-4x" aria-hidden="true"></i></button>
-        <div id="card-wrapper">
-            <div id="card-display">
-                <label>
-                    <input type="checkbox"  />
-                 <div class="card">
-                    <div class="front">{{test}}</div>
-                    <div class="back">Back</div>
+
+        <side-nav class="side-nav-container"></side-nav>
+    <div class='card-container'>
+        <div class='card-with-arrows'>
+            <div class="card-button-wrapper">
+                <div id="card-wrapper">
+                    <button><i class="fa fa-chevron-left fa-4x" aria-hidden="true"></i></button>
+                        <div id="card-display">
+                            <label>
+                            <input type="checkbox"  />
+                            <div class="card">
+                                <div class="front">{{test}}</div>
+                                <div class="back">Back</div>
+                            </div>
+                        </label>
+                        </div>
+                        
+                    <button><i class="fa fa-chevron-right fa-4x" aria-hidden="true"></i></button>
                 </div>
-                </label>
-            </div>
-            <div id="button-wrapper">
-                <button id="x"><i class="fa fa-times fa-2x" aria-hidden="true"></i></button>
-                <button id="plus"><i class="fa fa-check fa-2x" aria-hidden="true"></i></button>
+                <div id="button-wrapper">
+                    <button id="x"><i class="fa fa-times fa-2x" aria-hidden="true"></i></button>
+                    <button id="plus"><i class="fa fa-check fa-2x" aria-hidden="true"></i></button>
+                </div>
             </div>
         </div>
-        <button><i class="fa fa-chevron-right fa-4x" aria-hidden="true"></i></button>
     </div>
 </div>
