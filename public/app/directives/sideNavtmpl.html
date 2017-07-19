@@ -1,0 +1,13 @@
+  <div class='side-nav'>
+        <h3>Menu</h3>
+        <ul>
+            <a ng-click="showMenu()">Javascript</a>
+                <div ng-show='showSubMenu' class='sub-menu'>
+                <a ui-sref='jsBasic' ng-click="recJsBasicData()">Beginner</a>
+                <a ui-sref='jsAdvanced' ng-click="recJsAdvancedData()">Advanced</a>
+                <a ui-sref='jsAll' ng-click="recJsAllData()">All</a>
+                </div>
+            <a ui-sref='css' ng-click="recCssData()">CSS</a>
+            <a ui-sref='html' ng-click="recHtmlData()">HTML</a>
+        </ul>
+    </div>

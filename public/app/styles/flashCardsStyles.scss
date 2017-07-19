@@ -13,7 +13,6 @@ $nav-background-color: #444444;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    //border: solid black 1px;
     width: 70vw;
     button{
        background-color: whitesmoke;
@@ -28,7 +27,6 @@ $nav-background-color: #444444;
    
     }
  #card-wrapper{
-        //border: solid black 1px;
         height: 62vh;
         width: 60vw;
         display: flex;
@@ -38,12 +36,9 @@ $nav-background-color: #444444;
 #card-display{
         height: 50vh;
         width: 50vw;
-        border: solid black 1px;
-        background-color: white;
        
             } 
  #button-wrapper{
-           //border: solid black 1px;
            color: white;
            width: 50vw;
            display: flex;
@@ -64,43 +59,57 @@ $nav-background-color: #444444;
     }
                 }
 
-    .flip {
-  -webkit-perspective: 800;
-   width: 400px;
-   height: 200px;
+    
+
+    label {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.card {
     position: relative;
-    margin: 50px auto;
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: all 600ms;
+    z-index: 20;
 }
-.flip .card.flipped {
-  -webkit-transform: rotatex(-180deg);
+
+    .card div {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: white;
+        text-align: center;
+        line-height: 200px;
+        backface-visibility: hidden;
+        border-radius: 2px;
+    }
+
+    .card .back {
+        background: white;
+        color: black;
+        transform: rotateX(180deg);
+    }
+
+label:hover .card {
+    transform: rotateX(20deg);
+    box-shadow: 0 20px 20px rgba(50,50,50,.2);
 }
-.flip .card {
-  width: 100%;
-  height: 100%;
-  -webkit-transform-style: preserve-3d;
-  -webkit-transition: 0.5s;
+
+input {
+    display: none;
 }
-.flip .card .face {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  -webkit-backface-visibility: hidden ;
-  z-index: 2;
-    font-family: Georgia;
-    font-size: 3em;
-    text-align: center;
-    line-height: 200px;
+
+:checked + .card {
+    transform: rotateX(180deg);
 }
-.flip .card .front {
-  position: absolute;
-  z-index: 1;
-    color: black;
-    cursor: pointer;
-}
-.flip .card .back {
-  -webkit-transform: rotatex(-180deg);
-    background: blue;
-    background: white;
-    color: black;
-    cursor: pointer;
+
+label:hover :checked + .card {
+    transform: rotateX(160deg);
+    box-shadow: 0 20px 20px rgba(255,255,255,.2);
 }

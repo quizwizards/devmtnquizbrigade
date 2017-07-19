@@ -13,7 +13,48 @@ angular.module('group-project', ['ui.router']).config(function ($stateProvider, 
     }).state('flashCards', {
         url: '/flash-cards',
         templateUrl: './app/views/flashCards.html'
+    }).state('jsAll', {
+        url: '/jsall',
+        templateUrl: './app/views/jsAll.html'
+    }).state('jsBasic', {
+        url: '/jsbasic',
+        templateUrl: './app/views/jsBasic.html'
+    }).state('jsAdvanced', {
+        url: '/jsadvanced',
+        templateUrl: './app/views/jsAdvanced.html'
+    }).state('css', {
+        url: '/css',
+        templateUrl: './app/views/css.html'
+    }).state('html', {
+        url: '/html',
+        templateUrl: './app/views/html.html'
     });
+});
+'use strict';
+
+angular.module('group-project').directive('flashCards', function () {
+    return {
+        templateUrl: './app/directives/flashCards-tmpl.html',
+        controller: 'flashCardCtrl',
+        scope: {
+            incrementButton: '&',
+            decrementButton: '&'
+        }
+    };
+});
+'use strict';
+
+angular.module('group-project').directive('getStarted', function () {
+    return {
+        templateUrl: './app/directives/getStarted-tmpl.html'
+    };
+});
+'use strict';
+
+angular.module('group-project').directive('sideNav', function () {
+    return {
+        templateUrl: './app/directives/sideNavtmpl.html'
+    };
 });
 'use strict';
 
@@ -172,6 +213,7 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
             $scope.decData = response;
         });
     };
+    $scope.test = "working";
 });
 'use strict';
 
@@ -182,18 +224,6 @@ angular.module('group-project').controller('mainCtrl', function ($scope, mainSvc
 
     $scope.showMenu = function () {
         $scope.showSubMenu = !$scope.showSubMenu;
-    };
-});
-'use strict';
-
-angular.module('group-project').directive('flashCards', function () {
-    return {
-        templateUrl: './app/directives/flashCards-tmpl.html',
-        controller: 'flashCardCtrl',
-        scope: {
-            incrementButton: '&',
-            decrementButton: '&'
-        }
     };
 });
 'use strict';

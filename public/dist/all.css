@@ -50,9 +50,7 @@
 
 #card-display {
   height: 50vh;
-  width: 50vw;
-  border: solid black 1px;
-  background-color: white; }
+  width: 50vw; }
 
 #button-wrapper {
   color: white;
@@ -76,45 +74,62 @@
     height: 50px;
     width: 50px; }
 
-.flip {
-  -webkit-perspective: 800;
-  width: 400px;
-  height: 200px;
-  position: relative;
-  margin: 50px auto; }
-
-.flip .card.flipped {
-  -webkit-transform: rotatex(-180deg); }
-
-.flip .card {
-  width: 100%;
-  height: 100%;
+label {
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
   -webkit-transform-style: preserve-3d;
-  -webkit-transition: 0.5s; }
-
-.flip .card .face {
+  transform-style: preserve-3d;
   width: 100%;
   height: 100%;
-  position: absolute;
-  -webkit-backface-visibility: hidden;
-  z-index: 2;
-  font-family: Georgia;
-  font-size: 3em;
-  text-align: center;
-  line-height: 200px; }
-
-.flip .card .front {
-  position: absolute;
-  z-index: 1;
-  color: black;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   cursor: pointer; }
 
-.flip .card .back {
-  -webkit-transform: rotatex(-180deg);
-  background: blue;
+.card {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: all 600ms;
+  transition: all 600ms;
+  z-index: 20; }
+
+.card div {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: white;
+  text-align: center;
+  line-height: 200px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 2px; }
+
+.card .back {
   background: white;
   color: black;
-  cursor: pointer; }
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg); }
+
+label:hover .card {
+  -webkit-transform: rotateX(20deg);
+  transform: rotateX(20deg);
+  -webkit-box-shadow: 0 20px 20px rgba(50, 50, 50, 0.2);
+  box-shadow: 0 20px 20px rgba(50, 50, 50, 0.2); }
+
+input {
+  display: none; }
+
+:checked + .card {
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg); }
+
+label:hover :checked + .card {
+  -webkit-transform: rotateX(160deg);
+  transform: rotateX(160deg);
+  -webkit-box-shadow: 0 20px 20px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 20px rgba(255, 255, 255, 0.2); }
 
 .get-started-main {
   background: url("../app/assets/dev-mtn-background.jpg") no-repeat fixed;
@@ -157,21 +172,29 @@ button {
   font-size: 20px; }
 
 .side-nav {
-  background: red;
-  width: 10%;
+  background: #202020;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
-  flex-direction: column; }
+  flex-direction: column;
+  padding: 20px;
+  height: 100%; }
   .side-nav ul {
-    padding: 0px; }
-  .side-nav li {
-    padding: 5px 0;
+    padding: 0px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column; }
+  .side-nav a {
+    padding: 15px 0;
     list-style: none;
-    border: black; }
+    border-bottom: 1px solid #444444; }
 
 .sub-menu {
   display: -webkit-box;
@@ -183,7 +206,9 @@ button {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
-  flex-direction: column; }
+  flex-direction: column;
+  -webkit-transition: .5s;
+  transition: .5s; }
 
 .instructions {
   display: -webkit-box;
@@ -287,6 +312,9 @@ button {
 
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+a {
+  padding: 15px; }
 
 ul {
   padding: 15px; }

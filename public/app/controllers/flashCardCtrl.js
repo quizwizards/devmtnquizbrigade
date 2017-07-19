@@ -155,6 +155,8 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
         flashCardSvc.decHtmlData(counter).then(function(response) {
             $scope.decData = response;
         })
-    }     
+    } 
+    $scope.test = "working"
+
 
 })
