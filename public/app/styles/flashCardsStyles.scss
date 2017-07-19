@@ -13,7 +13,6 @@ $nav-background-color: #444444;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    //border: solid black 1px;
     width: 70vw;
     button{
        background-color: whitesmoke;
@@ -28,7 +27,6 @@ $nav-background-color: #444444;
    
     }
  #card-wrapper{
-        //border: solid black 1px;
         height: 62vh;
         width: 60vw;
         display: flex;
@@ -38,12 +36,9 @@ $nav-background-color: #444444;
 #card-display{
         height: 50vh;
         width: 50vw;
-        border: solid black 1px;
-        background-color: white;
        
             } 
  #button-wrapper{
-           //border: solid black 1px;
            color: white;
            width: 50vw;
            display: flex;
@@ -63,3 +58,58 @@ $nav-background-color: #444444;
            width: 50px;
     }
                 }
+
+    
+
+    label {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.card {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: all 600ms;
+    z-index: 20;
+}
+
+    .card div {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: white;
+        text-align: center;
+        line-height: 200px;
+        backface-visibility: hidden;
+        border-radius: 2px;
+    }
+
+    .card .back {
+        background: white;
+        color: black;
+        transform: rotateX(180deg);
+    }
+
+label:hover .card {
+    transform: rotateX(20deg);
+    box-shadow: 0 20px 20px rgba(50,50,50,.2);
+}
+
+input {
+    display: none;
+}
+
+:checked + .card {
+    transform: rotateX(180deg);
+}
+
+label:hover :checked + .card {
+    transform: rotateX(160deg);
+    box-shadow: 0 20px 20px rgba(255,255,255,.2);
+}
