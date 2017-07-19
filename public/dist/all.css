@@ -1,5 +1,6 @@
 .card-slider-display-main {
   width: 100vw;
+<<<<<<< HEAD
   height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -11,6 +12,22 @@
   -ms-flex-pack: center;
   justify-content: center;
   background-color: whitesmoke; }
+=======
+  height: 80vh;
+  background-color: whitesmoke;
+  display: inline-block; }
+
+.card-container {
+  height: 100%;
+  width: 84vw;
+  float: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+>>>>>>> master
 
 .card-with-arrows {
   display: -webkit-box;
@@ -22,6 +39,12 @@
   flex-direction: row;
   -ms-flex-pack: distribute;
   justify-content: space-around;
+<<<<<<< HEAD
+=======
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+>>>>>>> master
   width: 70vw; }
   .card-with-arrows button {
     background-color: whitesmoke;
@@ -31,8 +54,12 @@
     -webkit-box-shadow: none;
     box-shadow: none;
     border: none;
+<<<<<<< HEAD
     border-radius: 2px;
     margin-top: 183px; }
+=======
+    border-radius: 2px; }
+>>>>>>> master
 
 #card-wrapper {
   height: 62vh;
@@ -40,19 +67,48 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+<<<<<<< HEAD
+=======
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center; }
 
+.card-button-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+>>>>>>> master
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+<<<<<<< HEAD
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
+=======
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 30px; }
+>>>>>>> master
+
 #card-display {
   height: 50vh;
   width: 50vw;
+<<<<<<< HEAD
   border: solid black 1px;
   background-color: white; }
+=======
+  margin: 0 40px; }
+>>>>>>> master
 
 #button-wrapper {
   color: white;
@@ -76,6 +132,79 @@
     height: 50px;
     width: 50px; }
 
+<<<<<<< HEAD
+=======
+label {
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  width: 100%;
+  height: 100%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  cursor: pointer; }
+
+.card {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: all 600ms;
+  transition: all 600ms;
+  z-index: 20; }
+
+.card div {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: white;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 2px; }
+
+.card .back {
+  background: white;
+  color: black;
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg); }
+
+label:hover .card {
+  -webkit-transform: rotateX(20deg);
+  transform: rotateX(20deg);
+  -webkit-box-shadow: 0 20px 20px rgba(50, 50, 50, 0.2);
+  box-shadow: 0 20px 20px rgba(50, 50, 50, 0.2); }
+
+input {
+  display: none; }
+
+:checked + .card {
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg); }
+
+label:hover :checked + .card {
+  -webkit-transform: rotateX(160deg);
+  transform: rotateX(160deg);
+  -webkit-box-shadow: 0 20px 20px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 20px rgba(255, 255, 255, 0.2); }
+
+.side-nav-container {
+  height: 100%;
+  width: 15vw;
+  float: left; }
+
+>>>>>>> master
 .get-started-main {
   background: url("../app/assets/dev-mtn-background.jpg") no-repeat fixed;
   background-size: cover;
@@ -126,7 +255,12 @@ button {
   -ms-flex-direction: column;
   flex-direction: column;
   padding: 20px;
+<<<<<<< HEAD
   height: 100%; }
+=======
+  height: 100%;
+  width: 15vw; }
+>>>>>>> master
   .side-nav ul {
     padding: 0px;
     display: -webkit-box;
@@ -173,7 +307,11 @@ button {
 
 .home-page-title {
   background: url("../app/assets/devmountain_class_pic.jpg") no-repeat;
+<<<<<<< HEAD
   background-size: 100%;
+=======
+  background-size: cover;
+>>>>>>> master
   width: 100%;
   height: 47vh;
   color: white;
@@ -187,10 +325,19 @@ button {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
+<<<<<<< HEAD
   flex-direction: column; }
   .home-page-title h1 {
     font-weight: 300;
     margin-top: 65px;
+=======
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+  .home-page-title h1 {
+    font-weight: 300;
+>>>>>>> master
     font-size: 2.5em; }
   .home-page-title p {
     width: 50vw;
@@ -318,7 +465,11 @@ ul {
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
+<<<<<<< HEAD
   padding-right: 20px;
+=======
+  padding-right: 35px;
+>>>>>>> master
   font-size: 20px; }
 
 .footer {

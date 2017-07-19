@@ -187,13 +187,8 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
             $scope.decData = response;
         });
     };
-});
-'use strict';
-
-angular.module('group-project').controller('mainCtrl', function ($scope, mainSvc) {
 
     $scope.showSubMenu = false;
-    console.log($scope.showSubMenu);
 
     $scope.showMenu = function () {
         $scope.showSubMenu = !$scope.showSubMenu;
@@ -201,9 +196,17 @@ angular.module('group-project').controller('mainCtrl', function ($scope, mainSvc
 });
 'use strict';
 
+angular.module('group-project').controller('mainCtrl', function ($scope, mainSvc) {});
+'use strict';
+
 angular.module('group-project').directive('flashCards', function () {
     return {
-        templateUrl: './app/directives/flashCards-tmpl.html'
+        templateUrl: './app/directives/flashCards-tmpl.html',
+        controller: 'flashCardCtrl',
+        scope: {
+            incrementButton: '&',
+            decrementButton: '&'
+        }
     };
 });
 'use strict';
@@ -217,7 +220,8 @@ angular.module('group-project').directive('getStarted', function () {
 
 angular.module('group-project').directive('sideNav', function () {
     return {
-        templateUrl: './app/directives/sideNavtmpl.html'
+        templateUrl: './app/directives/sideNavtmpl.html',
+        controller: 'flashCardCtrl'
     };
 });
 'use strict';

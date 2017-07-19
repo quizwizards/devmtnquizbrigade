@@ -3,18 +3,25 @@ $nav-background-color: #444444;
 
 .card-slider-display-main{
     width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center; 
+    height: 80vh;
     background-color: whitesmoke;
+    display: inline-block;
+}
+
+.card-container{
+    height: 100%;
+    width: 84vw;
+    float: right;
+    display: flex;
+    justify-content: center;
 }
 .card-with-arrows{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    //border: solid black 1px;
+    align-items: center;
     width: 70vw;
+
     button{
        background-color: whitesmoke;
        color: $dev-mtn-blue;
@@ -23,27 +30,30 @@ $nav-background-color: #444444;
        box-shadow: none;
        border: none;
        border-radius: 2px;
-       margin-top: 183px;
    }
    
     }
  #card-wrapper{
-        //border: solid black 1px;
         height: 62vh;
         width: 60vw;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;    
         }
+.card-button-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+}
 #card-display{
         height: 50vh;
         width: 50vw;
-        border: solid black 1px;
-        background-color: white;
+        margin: 0 40px;
        
             } 
  #button-wrapper{
-           //border: solid black 1px;
            color: white;
            width: 50vw;
            display: flex;
@@ -63,3 +73,67 @@ $nav-background-color: #444444;
            width: 50px;
     }
                 }
+
+    
+
+    label {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.card {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: all 600ms;
+    z-index: 20;
+}
+
+    .card div {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: white;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        backface-visibility: hidden;
+        border-radius: 2px;
+    }
+
+    .card .back {
+        background: white;
+        color: black;
+        transform: rotateX(180deg);
+    }
+
+label:hover .card {
+    transform: rotateX(20deg);
+    box-shadow: 0 20px 20px rgba(50,50,50,.2);
+}
+
+input {
+    display: none;
+}
+
+:checked + .card {
+    transform: rotateX(180deg);
+}
+
+label:hover :checked + .card {
+    transform: rotateX(160deg);
+    box-shadow: 0 20px 20px rgba(255,255,255,.2);
+}
+
+.side-nav-container{
+    height: 100%;
+    width: 15vw;
+    float: left;
+
+}
