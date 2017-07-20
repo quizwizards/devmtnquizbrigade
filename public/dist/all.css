@@ -6,7 +6,7 @@
 
 .card-container {
   height: 100%;
-  width: 84vw;
+  width: 85vw;
   float: right;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -38,6 +38,8 @@
     box-shadow: none;
     border: none;
     border-radius: 2px; }
+  .card-with-arrows button:focus {
+    outline: 0; }
 
 #card-wrapper {
   height: 62vh;
@@ -69,10 +71,23 @@
   align-items: center;
   padding-top: 30px; }
 
+.left-button {
+  background-color: whitesmoke;
+  color: #2aabe2;
+  width: 75px;
+  height: 50px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: none;
+  border-radius: 2px;
+  visibility: hidden; }
+
 #card-display {
   height: 50vh;
   width: 50vw;
-  margin: 0 40px; }
+  min-width: 50vw;
+  margin: 0 40px;
+  padding: 20px; }
 
 #button-wrapper {
   color: white;
@@ -115,13 +130,14 @@ label {
   transform-style: preserve-3d;
   -webkit-transition: all 600ms;
   transition: all 600ms;
-  z-index: 20; }
+  z-index: 20;
+  -webkit-box-shadow: 0 20px 20px rgba(50, 50, 50, 0.2);
+  box-shadow: 0 20px 20px rgba(50, 50, 50, 0.2); }
 
 .card div {
   position: absolute;
   height: 100%;
   width: 100%;
-  background: white;
   text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -132,13 +148,17 @@ label {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  background: #FFF;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  border-radius: 2px; }
+  border-radius: 2px;
+  padding: 50px;
+  font-size: 28px;
+  line-height: 31px; }
 
 .card .back {
-  background: white;
-  color: black;
+  background: #fff;
+  color: #222;
   -webkit-transform: rotateX(180deg);
   transform: rotateX(180deg); }
 
@@ -155,6 +175,22 @@ input {
   height: 100%;
   width: 15vw;
   float: left; }
+
+.start-button {
+  position: absolute;
+  top: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  line-height: 30px;
+  left: 53%; }
 
 .get-started-main {
   background: url("../app/assets/dev-mtn-background.jpg") no-repeat fixed;

@@ -109,7 +109,7 @@ label {
     transform-style: preserve-3d;
     transition: all 600ms;
     z-index: 20;
-    border: 1px solid black;
+    // border: 1px solid black;
     box-shadow: 0 20px 20px rgba(50, 50, 50, .2);
 }
 
@@ -125,6 +125,8 @@ label {
     backface-visibility: hidden;
     border-radius: 2px;
     padding: 50px;
+    font-size: 28px;
+    line-height: 31px;
 }
 
 .card .back {
