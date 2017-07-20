@@ -143,23 +143,13 @@ label {
   transform: rotateX(180deg); }
 
 label:hover .card {
-  -webkit-transform: rotateX(20deg);
-  transform: rotateX(20deg);
+  -webkit-transform: rotateX(180deg);
+  transform: rotateX(180deg);
   -webkit-box-shadow: 0 20px 20px rgba(50, 50, 50, 0.2);
   box-shadow: 0 20px 20px rgba(50, 50, 50, 0.2); }
 
 input {
   display: none; }
-
-:checked + .card {
-  -webkit-transform: rotateX(180deg);
-  transform: rotateX(180deg); }
-
-label:hover :checked + .card {
-  -webkit-transform: rotateX(160deg);
-  transform: rotateX(160deg);
-  -webkit-box-shadow: 0 20px 20px rgba(255, 255, 255, 0.2);
-  box-shadow: 0 20px 20px rgba(255, 255, 255, 0.2); }
 
 .side-nav-container {
   height: 100%;
