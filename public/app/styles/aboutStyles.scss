@@ -6,6 +6,18 @@
     padding: 100px;
 }
 
+.profile-container {
+  background-color: black;
+  height: 50vh;
+  width: 50vw;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+  margin: 10px;
+  flex-direction: column;
+}
+
 .profile-pic {
   width: 150px;
   height: 150px;
