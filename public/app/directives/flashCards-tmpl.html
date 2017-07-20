@@ -4,6 +4,7 @@
         <div class='card-with-arrows'>
             <div class="card-button-wrapper" ng-show="showCard">
                 <div id="card-wrapper">
+                    <button ng-show="!backButtonShow"><i class="fa fa-chevron-left fa-4x" style="color: whitesmoke"aria-hidden="true"></i></button>
                     <button ng-click="dec(); toggleDataDec(); toggleNextButton(); toggleBackButton()" ng-show="backButtonShow"><i class="fa fa-chevron-left fa-4x" aria-hidden="true"></i></button>
                     <div id="card-display">
                         <label>
