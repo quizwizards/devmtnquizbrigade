@@ -1,10 +1,16 @@
-angular.module('group-project').controller('flashCardCtrl', function ($scope, flashCardSvc) {
+angular.module('group-project').controller('flashCardCtrl', function ($scope, flashCardSvc, $state, $stateParams) {
 
     var counter = {
         count: 0
     }
 
     var arrayLength;
+
+    $scope.showSubMenu = false;
+
+    $scope.showMenu = () => {
+        $scope.showSubMenu = !$scope.showSubMenu;
+    }
 
     $scope.startData;
     $scope.incData;
@@ -15,6 +21,13 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
     $scope.showDec = false;
     $scope.nextButtonShow = true;
     $scope.backButtonShow = false;
+    $scope.showCard = false;
+    $scope.startButton = true;
+
+    $scope.reset = function() {
+        $scope.showCard = false;
+        $scope.startButton = true;
+    }
 
     $scope.toggleDataInc = function () {
         $scope.showZero = false;
@@ -34,8 +47,6 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
         }
     }
     $scope.toggleNextButton = function () {
-        console.log("next counter", counter.count)
-        console.log('next array length', arrayLength)
         if (counter.count === arrayLength - 1) {
             $scope.nextButtonShow = false;
         } else {
@@ -43,27 +54,39 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
         }
     }
 
-
+    
+    $scope.checkType = function(){
+        var trainingType = $stateParams.id;
+        console.log(trainingType)
+        switch(trainingType){
+            case 'allJS':
+                $scope.recJsAllData();
+                break;
+            case 'basicJS':
+                $scope.recJsBasicData();
+                break;
+            case 'advancedJS':
+                $scope.recJsAdvancedData();
+                break;
+            case 'css':
+                $scope.recCssData();
+                break;
+            case 'html':
+                $scope.recHtmlData();
+                break;
+            default: 
+                break;
+            
+        }
+    }
 
     $scope.recJsAllData = function () {
         flashCardSvc.getJavascriptAll().then(function (response) {
             counter.count = 0;
-            $scope.startData = response.data.firstCard;
             arrayLength = response.data.length;
-        })
-    }
-
-    $scope.incJSAllData = function () {
-        counter.count++
-        flashCardSvc.incJSAllData(counter).then(function (response) {
-            $scope.incData = response;
-        })
-    }
-
-    $scope.decJSAllData = function () {
-        counter.count--;
-        flashCardSvc.decJSAllData(counter).then(function (response) {
-            $scope.decData = response;
+            $scope.startData = response.data.firstCard;
+            $scope.showCard = true;
+            $scope.startButton = false;
         })
     }
 
@@ -72,21 +95,8 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
             counter.count = 0;
             $scope.startData = response.data.firstCard;
             arrayLength = response.data.length;
-        })
-    }
-
-    $scope.incJSBasicData = function () {
-        counter.count++
-        flashCardSvc.incJSBasicData(counter).then(function (response) {
-            console.log('front end response: ', response)
-            $scope.incData = response;
-        })
-    }
-
-    $scope.decJSBasicData = function () {
-        counter.count--;
-        flashCardSvc.decJSBasicData(counter).then(function (response) {
-            $scope.decData = response;
+            $scope.showCard = true;
+            $scope.startButton = false;
         })
     }
 
@@ -95,43 +105,18 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
             counter.count = 0;
             $scope.startData = response.data.firstCard;
             arrayLength = response.data.length;
+            $scope.showCard = true;
+            $scope.startButton = false;
         })
     }
-
-    $scope.incJSAdvancedData = function () {
-        counter.count++
-        flashCardSvc.incJSAdvancedData(counter).then(function (response) {
-            $scope.incData = response;
-        })
-    }
-
-    $scope.decJSAdvancedData = function () {
-        counter.count--;
-        flashCardSvc.decJSAdvancedData(counter).then(function (response) {
-            $scope.decData = response;
-        })
-    }
-
 
     $scope.recCssData = function () {
         flashCardSvc.getCss().then(function (response) {
             counter.count = 0;
             $scope.startData = response.data.firstCard;
             arrayLength = response.data.length;
-        })
-    }
-
-    $scope.incCssData = function () {
-        counter.count++
-        flashCardSvc.incCssData(counter).then(function (response) {
-            $scope.incData = response;
-        })
-    }
-
-    $scope.decCssData = function () {
-        counter.count--;
-        flashCardSvc.decCssData(counter).then(function (response) {
-            $scope.decData = response;
+            $scope.showCard = true;
+            $scope.startButton = false;
         })
     }
 
@@ -140,28 +125,24 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
             counter.count = 0;
             $scope.startData = response.data.firstCard;
             arrayLength = response.data.length;
+            $scope.showCard = true;
+            $scope.startButton = false;
         })
     }
 
-    $scope.incHtmlData = function () {
+    $scope.inc = function () {
         counter.count++
-        flashCardSvc.incHtmlData(counter).then(function (response) {
-            $scope.incData = response;
-        })
+            flashCardSvc.incCard(counter).then(function (response) {
+                console.log(response.data);
+                $scope.incData = response.data;
+            })
     }
 
-    $scope.decHtmlData = function () {
+    $scope.dec = function () {
         counter.count--;
-        flashCardSvc.decHtmlData(counter).then(function (response) {
-            $scope.decData = response;
+        flashCardSvc.decCard(counter).then(function (response) {
+            $scope.decData = response.data;
         })
     }
-
-    $scope.showSubMenu = false;
-
-    $scope.showMenu = () => {
-        $scope.showSubMenu = !$scope.showSubMenu;
-    }
-
 
 })
