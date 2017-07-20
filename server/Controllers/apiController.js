@@ -43,6 +43,8 @@ module.exports = {
                 return finalArrOfObj
             }
             req.session.cards = getRandom(data);
+            console.log(data)
+            console.log(req.session.cards)
             res.status(200).send({
                 firstCard: req.session.cards[0],
                 length: req.session.cards.length
@@ -182,50 +184,4 @@ module.exports = {
         let intNum1 = Number(count)
         res.status(200).send(req.session.cards[intNum1])
     }
-    
-    // incJSBasic: function (req, res, next) {
-    //     let { count } = req.body
-    //     let intNum2 = Number(count);
-    //     res.status(200).send(req.session.jsBasicData[intNum2])
-    // },
-    // decJSBasic: function (req, res, next) {
-    //     let { count } = req.body;
-    //     console.log(count)
-    //     let intNum3 = Number(count)
-    //     res.status(200).send(req.session.jsBasicData[intNum3])
-    // },    
-    
-    // incJSAdvanced: function (req, res, next) {
-    //     let { count } = req.body
-    //     let intNum4 = Number(count)
-    //     res.status(200).send(req.session.jsAdvancedData[intNum4])
-    // },
-    // decJSAdvanced: function (req, res, next) {
-    //     let { count } = req.body;
-    //     let intNum5 = Number(count)
-    //     res.status(200).send(req.session.jsAdvancedData[intNum5])
-    // },    
-    
-    // incCss: function (req, res, next) {
-    //     let { count } = req.body
-    //     let intNum6 = Number(count)
-    //     res.status(200).send(req.session.cssData[intNum6])
-    // },
-    // decCss: function (req, res, next) {
-    //     let { count } = req.body;
-    //     let intNum7 = Number(count)
-    //     res.status(200).send(req.session.cssData[intNum7])
-    // },      
-    
-    // incHtml: function (req, res, next) {
-    //     let { count } = req.body
-    //     let intNum8 = Number(count)
-    //     res.status(200).send(req.session.htmlData[intNum8])
-    // },
-    // decHtml: function (req, res, next) {
-    //     let { count } = req.body;
-    //     let intNum9 = Number(count)
-    //     res.status(200).send(req.session.htmlData[intNum9])
-    // }
-
 }

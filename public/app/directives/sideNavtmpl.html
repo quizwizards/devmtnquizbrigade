@@ -3,11 +3,11 @@
         <ul>
             <a ng-click="showMenu()">Javascript</a>
                 <div ng-show='showSubMenu' class='sub-menu'>
-                <a ui-sref='flashCards' ng-click="recJsBasicData()">Beginner</a>
-                <a ui-sref='flashCards' ng-click="recJsAdvancedData()">Advanced</a>
-                <a ui-sref='flashCards' ng-click="recJsAllData()">All</a>
+                <a ui-sref="flashCards({id: 'advancedJS'})" ng-click="reset()">Beginner</a>
+                <a ui-sref="flashCards({id: 'basicJS'})" ng-click="reset()">Advanced</a>
+                <a ui-sref="flashCards({id: 'allJS'})" ng-click="reset()">All</a>
                 </div>
-            <a ui-sref='flashCards' ng-click="recCssData()">CSS</a>
-            <a ui-sref='flashCards' ng-click="recHtmlData()">HTML</a>
+            <a ui-sref="flashCards({id: 'css'})" ng-click="reset()">CSS</a>
+            <a ui-sref="flashCards({id: 'html'})" ng-click="reset()">HTML</a>
         </ul>
     </div>

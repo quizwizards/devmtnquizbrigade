@@ -1,12 +1,12 @@
 <div class='card-slider-display-main'>
-    <side-nav launchCards="recJsBasicData()" class="side-nav-container"></side-nav>
+    <side-nav class="side-nav-container"></side-nav>
     <div class='card-container'>
         <div class='card-with-arrows'>
-            <div class="card-button-wrapper">
+            <div class="card-button-wrapper" ng-show="showCard">
                 <div id="card-wrapper">
                     <button ng-click="dec(); toggleDataDec(); toggleNextButton(); toggleBackButton()" ng-show="backButtonShow"><i class="fa fa-chevron-left fa-4x" aria-hidden="true"></i></button>
-                        <div id="card-display">
-                            <label>
+                    <div id="card-display">
+                        <label>
                             <input type="checkbox"  />
                             <div class="card">
                                 <div ng-if="showZero" class="front">{{startData.term}}</div>
@@ -18,8 +18,8 @@
                                                                 
                             </div>
                         </label>
-                        </div>
-                        
+                    </div>
+
                     <button ng-click="inc(); toggleDataInc(); toggleBackButton(); toggleNextButton()" ng-show="nextButtonShow"><i class="fa fa-chevron-right fa-4x" aria-hidden="true"></i></button>
                 </div>
                 <div id="button-wrapper">
@@ -28,5 +28,10 @@
                 </div>
             </div>
         </div>
+        <div class="start-button" ng-show="startButton">
+            <h1>START TRAINING</h1>
+            <button ng-click="checkType()">START</button>
+        </div>
     </div>
+
 </div>
