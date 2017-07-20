@@ -22,7 +22,6 @@ function shuffle(array) {
 
 module.exports = {
     getJSAll: function (req, res, next) {
-
         axios({
             url: `https://api.quizlet.com/2.0/sets/216066988?client_id=${process.env.QUIZLET_KEY}&whitespace=1`,
             method: 'GET'
@@ -43,23 +42,14 @@ module.exports = {
                 }
                 return finalArrOfObj
             }
-            req.session.jsAllData = getRandom(data);
+            req.session.cards = getRandom(data);
             res.status(200).send({
-                firstCard: req.session.jsAllData[0],
-                length: req.session.jsAllData.length
+                firstCard: req.session.cards[0],
+                length: req.session.cards.length
             })
         })
     },
-    incJSAll: function (req, res, next) {
-        let { count } = req.body
-        let intNum = Number(count)
-        res.status(200).send(req.session.jsAllData[intNum])
-    },
-    decJSAll: function (req, res, next) {
-        let { count } = req.body;
-        let intNum1 = Number(count)
-        res.status(200).send(req.session.jsAllData[intNum1])
-    },
+
     getJSBasic: function (req, res, next) {
         axios({
             url: `https://api.quizlet.com/2.0/sets/216120524?client_id=${process.env.QUIZLET_KEY}&whitespace=1`,
@@ -82,24 +72,14 @@ module.exports = {
                 return finalArrOfObj
             }
 
-            req.session.jsBasicData = getRandom(data);
+            req.session.cards = getRandom(data);
             res.status(200).send({
-                firstCard: req.session.jsBasicData[0],
-                length: req.session.jsBasicData.length
+                firstCard: req.session.cards[0],
+                length: req.session.cards.length
             })
         })
     },
-    incJSBasic: function (req, res, next) {
-        let { count } = req.body
-        let intNum2 = Number(count);
-        res.status(200).send(req.session.jsBasicData[intNum2])
-    },
-    decJSBasic: function (req, res, next) {
-        let { count } = req.body;
-        console.log(count)
-        let intNum3 = Number(count)
-        res.status(200).send(req.session.jsBasicData[intNum3])
-    },    
+
     getJSAdvanced: function (req, res, next) {
         axios({
             url: `https://api.quizlet.com/2.0/sets/216121281?client_id=${process.env.QUIZLET_KEY}&whitespace=1`,
@@ -122,23 +102,14 @@ module.exports = {
                 return finalArrOfObj
             }
 
-            req.session.jsAdvancedData = getRandom(data);
+            req.session.cards = getRandom(data);
             res.status(200).send({
-                firstCard: req.session.jsAdvancedData[0],
-                length: req.session.jsAdvancedData.length
+                firstCard: req.session.cards[0],
+                length: req.session.cards.length
             })
         })
     },
-    incJSAdvanced: function (req, res, next) {
-        let { count } = req.body
-        let intNum4 = Number(count)
-        res.status(200).send(req.session.jsAdvancedData[intNum4])
-    },
-    decJSAdvanced: function (req, res, next) {
-        let { count } = req.body;
-        let intNum5 = Number(count)
-        res.status(200).send(req.session.jsAdvancedData[intNum5])
-    },    
+
     getCss: function (req, res, next) {
         axios({
             url: `https://api.quizlet.com/2.0/sets/216076590?client_id=${process.env.QUIZLET_KEY}&whitespace=1`,
@@ -161,23 +132,14 @@ module.exports = {
                 return finalArrOfObj
             }
 
-            req.session.cssData = getRandom(data);
+            req.session.cards = getRandom(data);
             res.status(200).send({
-                firstCard: req.session.cssData[0],
-                length: req.session.cssData.length
+                firstCard: req.session.cards[0],
+                length: req.session.cards.length
             })
         })
     },
-    incCss: function (req, res, next) {
-        let { count } = req.body
-        let intNum6 = Number(count)
-        res.status(200).send(req.session.cssData[intNum6])
-    },
-    decCss: function (req, res, next) {
-        let { count } = req.body;
-        let intNum7 = Number(count)
-        res.status(200).send(req.session.cssData[intNum7])
-    },      
+
     getHtml: function (req, res, next) {
         axios({
             url: `https://api.quizlet.com/2.0/sets/216078345?client_id=${process.env.QUIZLET_KEY}&whitespace=1`,
@@ -200,22 +162,70 @@ module.exports = {
                 return finalArrOfObj
             }
 
-            req.session.htmlData = getRandom(data);
+            req.session.cards = getRandom(data);
             res.status(200).send({
-                firstCard: req.session.htmlData[0],
-                length: req.session.htmlData.length
+                firstCard: req.session.cards[0],
+                length: req.session.cards.length
             })
         })
     },
-    incHtml: function (req, res, next) {
+
+
+    inc: function (req, res, next) {
         let { count } = req.body
-        let intNum8 = Number(count)
-        res.status(200).send(req.session.htmlData[intNum8])
+        let intNum = Number(count)
+        res.status(200).send(req.session.cards[intNum])
     },
-    decHtml: function (req, res, next) {
+
+    dec: function (req, res, next) {
         let { count } = req.body;
-        let intNum9 = Number(count)
-        res.status(200).send(req.session.htmlData[intNum9])
+        let intNum1 = Number(count)
+        res.status(200).send(req.session.cards[intNum1])
     }
+    
+    // incJSBasic: function (req, res, next) {
+    //     let { count } = req.body
+    //     let intNum2 = Number(count);
+    //     res.status(200).send(req.session.jsBasicData[intNum2])
+    // },
+    // decJSBasic: function (req, res, next) {
+    //     let { count } = req.body;
+    //     console.log(count)
+    //     let intNum3 = Number(count)
+    //     res.status(200).send(req.session.jsBasicData[intNum3])
+    // },    
+    
+    // incJSAdvanced: function (req, res, next) {
+    //     let { count } = req.body
+    //     let intNum4 = Number(count)
+    //     res.status(200).send(req.session.jsAdvancedData[intNum4])
+    // },
+    // decJSAdvanced: function (req, res, next) {
+    //     let { count } = req.body;
+    //     let intNum5 = Number(count)
+    //     res.status(200).send(req.session.jsAdvancedData[intNum5])
+    // },    
+    
+    // incCss: function (req, res, next) {
+    //     let { count } = req.body
+    //     let intNum6 = Number(count)
+    //     res.status(200).send(req.session.cssData[intNum6])
+    // },
+    // decCss: function (req, res, next) {
+    //     let { count } = req.body;
+    //     let intNum7 = Number(count)
+    //     res.status(200).send(req.session.cssData[intNum7])
+    // },      
+    
+    // incHtml: function (req, res, next) {
+    //     let { count } = req.body
+    //     let intNum8 = Number(count)
+    //     res.status(200).send(req.session.htmlData[intNum8])
+    // },
+    // decHtml: function (req, res, next) {
+    //     let { count } = req.body;
+    //     let intNum9 = Number(count)
+    //     res.status(200).send(req.session.htmlData[intNum9])
+    // }
 
 }

@@ -40,6 +40,12 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
 
     var arrayLength;
 
+    $scope.showSubMenu = false;
+
+    $scope.showMenu = function () {
+        $scope.showSubMenu = !$scope.showSubMenu;
+    };
+
     $scope.startData;
     $scope.incData;
     $scope.decData;
@@ -68,8 +74,6 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
         }
     };
     $scope.toggleNextButton = function () {
-        console.log("next counter", counter.count);
-        console.log('next array length', arrayLength);
         if (counter.count === arrayLength - 1) {
             $scope.nextButtonShow = false;
         } else {
@@ -85,40 +89,11 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
         });
     };
 
-    $scope.incJSAllData = function () {
-        counter.count++;
-        flashCardSvc.incJSAllData(counter).then(function (response) {
-            $scope.incData = response;
-        });
-    };
-
-    $scope.decJSAllData = function () {
-        counter.count--;
-        flashCardSvc.decJSAllData(counter).then(function (response) {
-            $scope.decData = response;
-        });
-    };
-
     $scope.recJsBasicData = function () {
         flashCardSvc.getJavascriptBasic().then(function (response) {
             counter.count = 0;
             $scope.startData = response.data.firstCard;
             arrayLength = response.data.length;
-        });
-    };
-
-    $scope.incJSBasicData = function () {
-        counter.count++;
-        flashCardSvc.incJSBasicData(counter).then(function (response) {
-            console.log('front end response: ', response);
-            $scope.incData = response;
-        });
-    };
-
-    $scope.decJSBasicData = function () {
-        counter.count--;
-        flashCardSvc.decJSBasicData(counter).then(function (response) {
-            $scope.decData = response;
         });
     };
 
@@ -130,39 +105,11 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
         });
     };
 
-    $scope.incJSAdvancedData = function () {
-        counter.count++;
-        flashCardSvc.incJSAdvancedData(counter).then(function (response) {
-            $scope.incData = response;
-        });
-    };
-
-    $scope.decJSAdvancedData = function () {
-        counter.count--;
-        flashCardSvc.decJSAdvancedData(counter).then(function (response) {
-            $scope.decData = response;
-        });
-    };
-
     $scope.recCssData = function () {
         flashCardSvc.getCss().then(function (response) {
             counter.count = 0;
             $scope.startData = response.data.firstCard;
             arrayLength = response.data.length;
-        });
-    };
-
-    $scope.incCssData = function () {
-        counter.count++;
-        flashCardSvc.incCssData(counter).then(function (response) {
-            $scope.incData = response;
-        });
-    };
-
-    $scope.decCssData = function () {
-        counter.count--;
-        flashCardSvc.decCssData(counter).then(function (response) {
-            $scope.decData = response;
         });
     };
 
@@ -174,39 +121,211 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
         });
     };
 
-    $scope.incHtmlData = function () {
+    $scope.inc = function () {
         counter.count++;
-        flashCardSvc.incHtmlData(counter).then(function (response) {
-            $scope.incData = response;
+        flashCardSvc.incCard(counter).then(function (response) {
+            console.log(response.data);
+            $scope.incData = response.data;
         });
     };
 
-    $scope.decHtmlData = function () {
+    $scope.dec = function () {
         counter.count--;
-        flashCardSvc.decHtmlData(counter).then(function (response) {
-            $scope.decData = response;
+        flashCardSvc.decCard(counter).then(function (response) {
+            $scope.decData = response.data;
         });
     };
 
-    $scope.showSubMenu = false;
+    // $scope.incJSBasicData = function () {
+    //     console.log('fired inc')
+    //     counter.count++
+    //     flashCardSvc.incJSBasicData(counter).then(function (response) {
+    //         console.log('front end response: ', response)
+    //         $scope.incData = response;
+    //     })
+    // }
 
-    $scope.showMenu = function () {
-        $scope.showSubMenu = !$scope.showSubMenu;
-    };
+    // $scope.decJSBasicData = function () {
+    //     counter.count--;
+    //     flashCardSvc.decJSBasicData(counter).then(function (response) {
+    //         $scope.decData = response;
+    //     })
+    // }
+
+
+    // $scope.incJSAdvancedData = function () {
+    //     counter.count++
+    //     flashCardSvc.incJSAdvancedData(counter).then(function (response) {
+    //         $scope.incData = response;
+    //     })
+    // }
+
+    // $scope.decJSAdvancedData = function () {
+    //     counter.count--;
+    //     flashCardSvc.decJSAdvancedData(counter).then(function (response) {
+    //         $scope.decData = response;
+    //     })
+    // }
+
+
+    // $scope.incCssData = function () {
+    //     counter.count++
+    //     flashCardSvc.incCssData(counter).then(function (response) {
+    //         $scope.incData = response;
+    //     })
+    // }
+
+    // $scope.decCssData = function () {
+    //     counter.count--;
+    //     flashCardSvc.decCssData(counter).then(function (response) {
+    //         $scope.decData = response;
+    //     })
+    // }
+
+
+    // $scope.incHtmlData = function () {
+    //     counter.count++
+    //     flashCardSvc.incHtmlData(counter).then(function (response) {
+    //         $scope.incData = response;
+    //     })
+    // }
+
+    // $scope.decHtmlData = function () {
+    //     counter.count--;
+    //     flashCardSvc.decHtmlData(counter).then(function (response) {
+    //         $scope.decData = response;
+    //     })
+    // }
+
 });
 'use strict';
 
 angular.module('group-project').controller('mainCtrl', function ($scope, mainSvc) {});
 'use strict';
 
+angular.module('group-project').service('flashCardSvc', function ($http) {
+
+    this.getJavascriptAll = function () {
+        return $http({
+            url: '/api/getJSAll',
+            method: 'GET'
+        });
+    };
+
+    this.getJavascriptBasic = function () {
+        return $http({
+            url: '/api/getJSBasic',
+            method: 'GET'
+        });
+    };
+
+    this.getJavascriptAdvanced = function () {
+        return $http({
+            url: '/api/getJSAdvanced',
+            method: 'GET'
+        });
+    };
+
+    this.getCss = function () {
+        return $http({
+            url: '/api/getCss',
+            method: 'GET'
+        });
+    };
+
+    this.getHtml = function () {
+        return $http({
+            url: '/api/getHtml',
+            method: 'GET'
+        });
+    };
+
+    this.incCard = function (count) {
+        console.log('Service: ', count);
+        return $http({
+            url: '/api/inc',
+            method: 'POST',
+            data: count
+        });
+    };
+    this.decCard = function (count) {
+        return $http({
+            url: '/api/dec',
+            method: 'POST',
+            data: count
+        });
+    };
+
+    // this.incJSBasicData = (count) => {
+    //     return $http({
+    //         url: '/api/incjsbasicdata',
+    //         method: 'POST',
+    //         data: count
+    //     })
+    // }
+    // this.decJSBasicData = (count) => {
+    //     return $http({
+    //         url: '/api/decjsbasicdata',
+    //         method: 'POST',
+    //         data: count
+    //     })
+    // }
+
+    // this.incJSAdvancedData = (count) => {
+    //     return $http({
+    //         url: '/api/incjsadvanceddata',
+    //         method: 'POST',
+    //         data: count
+    //     })
+    // }
+    // this.decJSAdvancedData = (count) => {
+    //     return $http({
+    //         url: '/api/decjsadvanceddata',
+    //         method: 'POST',
+    //         data: count
+    //     })
+    // }
+
+    // this.incCssData = (count) => {
+    //     return $http({
+    //         url: '/api/inccssdata',
+    //         method: 'POST',
+    //         data: count
+    //     })
+    // }
+    // this.decCssData = (count) => {
+    //     return $http({
+    //         url: '/api/deccssdata',
+    //         method: 'POST',
+    //         data: count
+    //     })
+    // }
+
+    // this.incHtmlData = (count) => {
+    //     return $http({
+    //         url: '/api/inchtmldata',
+    //         method: 'POST',
+    //         data: count
+    //     })
+    // }
+    // this.decHtmlData = (count) => {
+    //     return $http({
+    //         url: '/api/dechtmldata',
+    //         method: 'POST',
+    //         data: count
+    //     })
+    // }
+
+});
+'use strict';
+
+angular.module('group-project').service('mainSvc', function () {});
+'use strict';
+
 angular.module('group-project').directive('flashCards', function () {
     return {
         templateUrl: './app/directives/flashCards-tmpl.html',
-        controller: 'flashCardCtrl',
-        scope: {
-            incrementButton: '&',
-            decrementButton: '&'
-        }
+        controller: 'flashCardCtrl'
     };
 });
 'use strict';
@@ -224,111 +343,3 @@ angular.module('group-project').directive('sideNav', function () {
         controller: 'flashCardCtrl'
     };
 });
-'use strict';
-
-angular.module('group-project').service('flashCardSvc', function ($http) {
-    this.getJavascriptAll = function () {
-        return $http({
-            url: '/api/getJSAll',
-            method: 'GET'
-        });
-    };
-    this.incJSAllData = function (count) {
-        console.log('Service: ', count);
-        return $http({
-            url: '/api/incjsalldata',
-            method: 'POST',
-            data: count
-        });
-    };
-    this.decJSAllData = function (count) {
-        return $http({
-            url: '/api/decjsalldata',
-            method: 'POST',
-            data: count
-        });
-    };
-    this.getJavascriptBasic = function () {
-        return $http({
-            url: '/api/getJSBasic',
-            method: 'GET'
-        });
-    };
-    this.incJSBasicData = function (count) {
-        return $http({
-            url: '/api/incjsbasicdata',
-            method: 'POST',
-            data: count
-        });
-    };
-    this.decJSBasicData = function (count) {
-        return $http({
-            url: '/api/decjsbasicdata',
-            method: 'POST',
-            data: count
-        });
-    };
-    this.getJavascriptAdvanced = function () {
-        return $http({
-            url: '/api/getJSAdvanced',
-            method: 'GET'
-        });
-    };
-    this.incJSAdvancedData = function (count) {
-        return $http({
-            url: '/api/incjsadvanceddata',
-            method: 'POST',
-            data: count
-        });
-    };
-    this.decJSAdvancedData = function (count) {
-        return $http({
-            url: '/api/decjsadvanceddata',
-            method: 'POST',
-            data: count
-        });
-    };
-    this.getCss = function () {
-        return $http({
-            url: '/api/getCss',
-            method: 'GET'
-        });
-    };
-    this.incCssData = function (count) {
-        return $http({
-            url: '/api/inccssdata',
-            method: 'POST',
-            data: count
-        });
-    };
-    this.decCssData = function (count) {
-        return $http({
-            url: '/api/deccssdata',
-            method: 'POST',
-            data: count
-        });
-    };
-    this.getHtml = function () {
-        return $http({
-            url: '/api/getHtml',
-            method: 'GET'
-        });
-    };
-    this.incHtmlData = function (count) {
-        return $http({
-            url: '/api/inchtmldata',
-            method: 'POST',
-            data: count
-        });
-    };
-    this.decHtmlData = function (count) {
-        return $http({
-            url: '/api/dechtmldata',
-            method: 'POST',
-            data: count
-        });
-    };
-});
-'use strict';
-
-angular.module('group-project').service('mainSvc', function () {});
