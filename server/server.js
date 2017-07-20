@@ -6,7 +6,7 @@ const app = module.exports = express();
 const cors = require('cors');
 const axios = require('axios');
 const session = require('express-session');
-const {getJSAll, incJSAll, decJSAll, getJSBasic, incJSBasic, decJSBasic, getJSAdvanced, incJSAdvanced, decJSAdvanced, getCss, incCss, decCss, getHtml, incHtml, decHtml} = require('./Controllers/apiController.js');
+const {getJSAll, inc, dec, getJSBasic, incJSBasic, decJSBasic, getJSAdvanced, incJSAdvanced, decJSAdvanced, getCss, incCss, decCss, getHtml, incHtml, decHtml} = require('./Controllers/apiController.js');
 
 app.set('port', process.env.PORT || 3000)
 
@@ -25,33 +25,33 @@ app.use(express.static(__dirname + './../public'));
 
 app.get('/api/getJSAll', getJSAll);
 
-app.post('/api/incjsalldata', incJSAll);
-
-app.post('/api/decjsalldata', decJSAll);
-
 app.get('/api/getJSBasic', getJSBasic);
-
-app.post('/api/incjsbasicdata', incJSBasic);
-
-app.post('/api/decjsbasicdata', decJSBasic);
 
 app.get('/api/getJSAdvanced', getJSAdvanced);
 
-app.post('/api/incjsadvanceddata', incJSAdvanced);
-
-app.post('/api/decjsadvanceddata', decJSAdvanced);
-
 app.get('/api/getCss', getCss);
-
-app.post('/api/inccssdata', incCss);
-
-app.post('/api/deccssdata', decCss);
 
 app.get('/api/getHtml', getHtml);
 
-app.post('/api/inchtmldata', incHtml);
+app.post('/api/inc', inc);
 
-app.post('/api/dechtmldata', decHtml);
+app.post('/api/dec', dec);
+
+// app.post('/api/incjsbasicdata', incJSBasic);
+
+// app.post('/api/decjsbasicdata', decJSBasic);
+
+// app.post('/api/incjsadvanceddata', incJSAdvanced);
+
+// app.post('/api/decjsadvanceddata', decJSAdvanced);
+
+// app.post('/api/inccssdata', incCss);
+
+// app.post('/api/deccssdata', decCss);
+
+// app.post('/api/inchtmldata', incHtml);
+
+// app.post('/api/dechtmldata', decHtml);
 
 
 
