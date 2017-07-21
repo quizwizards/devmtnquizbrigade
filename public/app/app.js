@@ -9,7 +9,8 @@ angular.module('group-project', ['ui.router']).config(function($stateProvider, $
         .state('getstarted', {
             url: '/getstarted',
             templateUrl: './app/views/getstarted.html',
-            controller: 'flashCardCtrl'
+            controller: 'flashCardCtrl',
+            resolve: {}
         })
         .state('flashCards', {
             url: '/flash-cards/:id',
