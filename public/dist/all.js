@@ -9,8 +9,17 @@ angular.module('group-project', ['ui.router']).config(function ($stateProvider, 
     }).state('getstarted', {
         url: '/getstarted',
         templateUrl: './app/views/getstarted.html',
-        controller: 'flashCardCtrl',
-        resolve: {}
+        controller: 'flashCardCtrl'
+        // resolve: {
+        //     user: function($state, mainSvc){
+        //        return mainSvc.getUser()
+        //         .then((resp) => {
+        //             if(!resp.data){
+        //                 $state.go('home')
+        //             }
+        //         })
+        //     }
+        // }
     }).state('flashCards', {
         url: '/flash-cards/:id',
         templateUrl: './app/views/flashCards.html'
@@ -169,6 +178,29 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
 });
 'use strict';
 
+angular.module('group-project').directive('flashCards', function () {
+    return {
+        templateUrl: './app/directives/flashCards-tmpl.html',
+        controller: 'flashCardCtrl'
+    };
+});
+'use strict';
+
+angular.module('group-project').directive('getStarted', function () {
+    return {
+        templateUrl: './app/directives/getStarted-tmpl.html'
+    };
+});
+'use strict';
+
+angular.module('group-project').directive('sideNav', function () {
+    return {
+        templateUrl: './app/directives/sideNavtmpl.html',
+        controller: 'flashCardCtrl'
+    };
+});
+'use strict';
+
 angular.module('group-project').service('flashCardSvc', function ($http) {
 
     this.getJavascriptAll = function () {
@@ -227,28 +259,13 @@ angular.module('group-project').service('flashCardSvc', function ($http) {
 });
 'use strict';
 
-angular.module('group-project').service('mainSvc', function () {});
-'use strict';
+angular.module('group-project').service('mainSvc', function ($http) {
 
-angular.module('group-project').directive('flashCards', function () {
-    return {
-        templateUrl: './app/directives/flashCards-tmpl.html',
-        controller: 'flashCardCtrl'
-    };
-});
-'use strict';
-
-angular.module('group-project').directive('getStarted', function () {
-    return {
-        templateUrl: './app/directives/getStarted-tmpl.html'
-    };
-});
-'use strict';
-
-angular.module('group-project').directive('sideNav', function () {
-    return {
-        templateUrl: './app/directives/sideNavtmpl.html',
-        controller: 'flashCardCtrl'
+    this.getUser = function () {
+        return $http({
+            url: "/api/checkRestriction",
+            method: "GET"
+        });
     };
 });
 //# sourceMappingURL=maps/all.js.map
