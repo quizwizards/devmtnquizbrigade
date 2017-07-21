@@ -1,0 +1,25 @@
+.side-nav {
+    background: #202020;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    height: 100%;
+    width: 15vw;
+    ul {
+        padding: 0px;
+        display: flex;
+        flex-direction: column;
+    }
+    a {
+        padding: 15px 0;
+        list-style: none;
+        border-bottom: 1px solid #444444;
+    }
+}
+
+.sub-menu {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    transition: .5s;
+}
