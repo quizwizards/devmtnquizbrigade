@@ -15,6 +15,7 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
     $scope.startData;
     $scope.incData;
     $scope.decData;
+    $scope.rank;
 
     $scope.showZero = true;
     $scope.showInc = false;
@@ -23,6 +24,8 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
     $scope.backButtonShow = false;
     $scope.showCard = false;
     $scope.startButton = true;
+    $scope.rightChecked = false;
+    $scope.wrongChecked = false;
 
     $scope.reset = function() {
         $scope.showCard = false;
@@ -52,6 +55,16 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
         } else {
             $scope.nextButtonShow = true;
         }
+    }
+
+    $scope.toggleRightChecked = function() {
+        $scope.rightChecked = true;
+        $scope.wrongChecked = false;
+    }
+
+    $scope.toggleWrongChecked = function() {
+        $scope.rightChecked = false;
+        $scope.wrongChecked = true;
     }
 
     
@@ -142,6 +155,12 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
         counter.count--;
         flashCardSvc.decCard(counter).then(function (response) {
             $scope.decData = response.data;
+        })
+    }
+
+    $scope.sendCheckedData = function() {
+        flashCardSvc.checkBox(counter).then(function(response) {
+            console.log(response);
         })
     }
 

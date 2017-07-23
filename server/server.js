@@ -35,7 +35,6 @@ passport.use(new Auth0Strategy({
     // profile has all the information from the user
     // return done(null, profile);
     console.log(profile)
-    console.log(req.session)
   }
 ));
 

@@ -54,4 +54,11 @@ angular.module('group-project').service('flashCardSvc', function ($http) {
             data: count
         })
     }
+    this.checkRight = (count) => {
+        return $http({
+            url: '/api/checkRight',
+            method: 'POST',
+            data: count
+        })
+    }
 })
