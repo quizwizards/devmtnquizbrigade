@@ -23,8 +23,12 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
     $scope.backButtonShow = false;
     $scope.showCard = false;
     $scope.startButton = true;
+    $scope.rightChecked = false;
+    $scope.wrongChecked = false;
 
-    $scope.reset = function() {
+
+
+    $scope.reset = function () {
         $scope.showCard = false;
         $scope.startButton = true;
     }
@@ -54,11 +58,21 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
         }
     }
 
-    
-    $scope.checkType = function(){
+    $scope.toggleRightChecked = function () {
+        $scope.rightChecked = true;
+        $scope.wrongChecked = false;
+    }
+
+    $scope.toggleWrongChecked = function () {
+        $scope.rightChecked = false;
+        $scope.wrongChecked = true;
+    }
+
+
+    $scope.checkType = function () {
         var trainingType = $stateParams.id;
         console.log(trainingType)
-        switch(trainingType){
+        switch (trainingType) {
             case 'allJS':
                 $scope.recJsAllData();
                 break;
@@ -74,9 +88,9 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
             case 'html':
                 $scope.recHtmlData();
                 break;
-            default: 
+            default:
                 break;
-            
+
         }
     }
 
@@ -131,17 +145,34 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
     }
 
     $scope.inc = function () {
-        counter.count++
-            flashCardSvc.incCard(counter).then(function (response) {
-                console.log(response.data);
-                $scope.incData = response.data;
-            })
+        counter.count++;
+        $scope.rightChecked = false;
+        $scope.wrongChecked = false;
+        flashCardSvc.incCard(counter).then(function (response) {
+            $scope.rightChecked = response.data.right;
+            $scope.wrongChecked = response.data.wrong;
+            $scope.incData = response.data;
+
+        })
     }
 
     $scope.dec = function () {
         counter.count--;
         flashCardSvc.decCard(counter).then(function (response) {
+            $scope.rightChecked = response.data.right;
+            $scope.wrongChecked = response.data.wrong;
             $scope.decData = response.data;
+        })
+    }
+
+    $scope.sendCheckedData = function () {
+        let data = {
+            index: counter.count,
+            right: $scope.rightChecked,
+            wrong: $scope.wrongChecked
+        }
+        flashCardSvc.checkBox(data).then(function (response) {
+            console.log(response);
         })
     }
 

@@ -8,7 +8,7 @@ const Auth0Strategy = require('passport-auth0');
 const passport = require('passport');
 const axios = require('axios');
 const session = require('express-session');
-const { getJSAll, inc, dec, getJSBasic, incJSBasic, decJSBasic, getJSAdvanced, incJSAdvanced, decJSAdvanced, getCss, incCss, decCss, getHtml, incHtml, decHtml } = require('./Controllers/apiController.js');
+const { getJSAll, getJSBasic, getJSAdvanced, getCss, getHtml, inc, dec, addAnswer } = require('./Controllers/apiController.js');
 
 app.set('port', process.env.PORT || 3000)
 app.use(express.static(__dirname + './../public'));
@@ -83,30 +83,14 @@ app.post('/api/inc', inc);
 
 app.post('/api/dec', dec);
 
+app.post('/api/checkRight', addAnswer)
+
 app.get('/api/login', passport.authenticate('auth0'));
 
 app.get('/auth/callback',
     passport.authenticate('auth0', { successRedirect: '/#/getstarted' }), function (req, res) {
         res.status(200).send(req.user);
     });
-
-// app.post('/api/incjsbasicdata', incJSBasic);
-
-// app.post('/api/decjsbasicdata', decJSBasic);
-
-// app.post('/api/incjsadvanceddata', incJSAdvanced);
-
-// app.post('/api/decjsadvanceddata', decJSAdvanced);
-
-// app.post('/api/inccssdata', incCss);
-
-// app.post('/api/deccssdata', decCss);
-
-// app.post('/api/inchtmldata', incHtml);
-
-// app.post('/api/dechtmldata', decHtml);
-
-
 
 app.listen(app.get('port'), () => {
     console.log(`Listening on port ${app.get('port')}`);

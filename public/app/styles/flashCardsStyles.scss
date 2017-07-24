@@ -83,6 +83,7 @@ $nav-background-color: #444444;
         height: 50px;
         width: 50px;
         margin: 25px;
+        z-index: 2;
     }
     #plus {
         background-color: $dev-mtn-blue;
@@ -160,4 +161,21 @@ input {
     align-items: center;
     line-height: 30px;
     left: 53%;
+}
+
+.wrong-button-wrapper {
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    margin-left: -50px;
+    margin-top: 15px;
+    border: 15px solid red;
+}
+.right-button-wrapper {
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    margin-left: 50px;
+    margin-top: 15px;
+    border: 15px solid green;
 }
