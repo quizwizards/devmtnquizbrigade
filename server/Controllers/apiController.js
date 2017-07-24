@@ -43,8 +43,6 @@ module.exports = {
                 return finalArrOfObj
             }
             req.session.cards = getRandom(data);
-            console.log(data)
-            console.log(req.session.cards)
             res.status(200).send({
                 firstCard: req.session.cards[0],
                 length: req.session.cards.length
@@ -172,7 +170,6 @@ module.exports = {
         })
     },
 
-
     inc: function (req, res, next) {
         let { count } = req.body
         let intNum = Number(count)
@@ -183,5 +180,12 @@ module.exports = {
         let { count } = req.body;
         let intNum1 = Number(count)
         res.status(200).send(req.session.cards[intNum1])
+    },
+    addAnswer: function(req, res, next) {
+        let { index, right, wrong } = req.body;
+        req.session.cards[index].right = right;
+        req.session.cards[index].wrong = wrong;
+        res.status(200).send('ok');
+
     }
 }
