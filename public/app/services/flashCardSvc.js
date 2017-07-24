@@ -15,6 +15,8 @@ angular.module('group-project').service('flashCardSvc', function ($http) {
         return $http({
             url: '/api/getJSBasic',
             method: 'GET'
+        }).then(res => {
+            return res
         })
     }
 
@@ -22,6 +24,8 @@ angular.module('group-project').service('flashCardSvc', function ($http) {
         return $http({
             url: '/api/getJSAdvanced',
             method: 'GET'
+        }).then(res => {
+            return res
         })
     }
 
@@ -29,6 +33,8 @@ angular.module('group-project').service('flashCardSvc', function ($http) {
         return $http({
             url: '/api/getCss',
             method: 'GET'
+        }).then(res => {
+            return res
         })
     }
 
@@ -36,6 +42,8 @@ angular.module('group-project').service('flashCardSvc', function ($http) {
         return $http({
             url: '/api/getHtml',
             method: 'GET'
+        }).then(res => {
+            return res
         })
     }
     
@@ -52,6 +60,13 @@ angular.module('group-project').service('flashCardSvc', function ($http) {
             url: '/api/dec',
             method: 'POST',
             data: count
+        })
+    }
+    this.checkBox = (data) => {
+        return $http({
+            url: '/api/checkRight',
+            method: 'POST',
+            data: data
         })
     }
 })

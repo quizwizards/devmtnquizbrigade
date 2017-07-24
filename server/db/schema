@@ -1,0 +1,12 @@
+CREATE TABLE users (
+    id varchar PRIMARY KEY,
+    first_name text,
+    last_name text
+)
+
+CREATE TABLE quiz (
+    id serial PRIMARY KEY,
+    auth0_id varchar,
+    data varchar,
+    foreign key (auth0_id) references users(id)
+)

@@ -10,7 +10,16 @@ angular.module('group-project', ['ui.router']).config(function($stateProvider, $
             url: '/getstarted',
             templateUrl: './app/views/getstarted.html',
             controller: 'flashCardCtrl',
-            resolve: {}
+            // resolve: {
+            //     user: function($state, mainSvc){
+            //        return mainSvc.getUser()
+            //         .then((resp) => {
+            //             if(!resp.data){
+            //                 $state.go('home')
+            //             }
+            //         })
+            //     }
+            // }
         })
         .state('flashCards', {
             url: '/flash-cards/:id',
