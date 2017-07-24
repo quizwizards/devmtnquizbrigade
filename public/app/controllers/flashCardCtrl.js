@@ -15,7 +15,6 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
     $scope.startData;
     $scope.incData;
     $scope.decData;
-    $scope.rank;
 
     $scope.showZero = true;
     $scope.showInc = false;
