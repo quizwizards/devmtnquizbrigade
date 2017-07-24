@@ -25,6 +25,9 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
     $scope.startButton = true;
     $scope.rightChecked = false;
     $scope.wrongChecked = false;
+    $scope.counter;
+    $scope.arrayLength;
+    $scope.data = {progress: 0};
 
 
 
@@ -101,6 +104,8 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
             $scope.startData = response.data.firstCard;
             $scope.showCard = true;
             $scope.startButton = false;
+            $scope.counter = counter.count + 1;
+            $scope.arrayLength = arrayLength;
         })
     }
 
@@ -111,6 +116,8 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
             arrayLength = response.data.length;
             $scope.showCard = true;
             $scope.startButton = false;
+            $scope.counter = counter.count + 1;
+            $scope.arrayLength = arrayLength;
         })
     }
 
@@ -121,6 +128,8 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
             arrayLength = response.data.length;
             $scope.showCard = true;
             $scope.startButton = false;
+            $scope.counter = counter.count + 1;
+            $scope.arrayLength = arrayLength;
         })
     }
 
@@ -131,6 +140,8 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
             arrayLength = response.data.length;
             $scope.showCard = true;
             $scope.startButton = false;
+            $scope.counter = counter.count + 1;
+            $scope.arrayLength = arrayLength;
         })
     }
 
@@ -141,6 +152,8 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
             arrayLength = response.data.length;
             $scope.showCard = true;
             $scope.startButton = false;
+            $scope.counter = counter.count + 1;
+            $scope.arrayLength = arrayLength;
         })
     }
 
@@ -152,7 +165,10 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
             $scope.rightChecked = response.data.right;
             $scope.wrongChecked = response.data.wrong;
             $scope.incData = response.data;
-
+            $scope.counter = counter.count + 1;
+            $scope.arrayLength = arrayLength;
+            $scope.data.progress = ($scope.counter / $scope.arrayLength) * 100
+            console.log('progress: ', $scope.data.progress);
         })
     }
 
@@ -162,6 +178,9 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
             $scope.rightChecked = response.data.right;
             $scope.wrongChecked = response.data.wrong;
             $scope.decData = response.data;
+            $scope.counter = counter.count + 1;
+            $scope.arrayLength = arrayLength;
+            $scope.data.progress = ($scope.counter / $scope.arrayLength) * 100
         })
     }
 
