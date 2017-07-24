@@ -29,7 +29,6 @@ $nav-background-color: #444444;
         box-shadow: none;
         border: none;
         border-radius: 2px;
-        
     }
     button:focus {
         outline: 0;
@@ -38,7 +37,7 @@ $nav-background-color: #444444;
 
 #card-wrapper {
     height: 62vh;
-    width: 60vw;
+    width: 65vw;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -83,7 +82,6 @@ $nav-background-color: #444444;
         height: 50px;
         width: 50px;
         margin: 25px;
-        z-index: 2;
     }
     #plus {
         background-color: $dev-mtn-blue;
@@ -92,6 +90,17 @@ $nav-background-color: #444444;
         height: 50px;
         width: 50px;
     }
+}
+
+#save {
+    background-color: $dev-mtn-blue;
+    color: white;
+    height: 50px;
+    width: 150px;
+    margin: 25px;
+    position: absolute;
+    bottom: 30px;
+    right: -12px;
 }
 
 label {
@@ -109,8 +118,7 @@ label {
     width: 100%;
     transform-style: preserve-3d;
     transition: all 600ms;
-    z-index: 20;
-    // border: 1px solid black;
+    z-index: 20; // border: 1px solid black;
     box-shadow: 0 20px 20px rgba(50, 50, 50, .2);
 }
 
@@ -145,7 +153,18 @@ input {
     display: none;
 }
 
-
+.progress-bar {
+    width: 80%;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+    progress {
+        width: 90%;
+        margin-right: 15px;
+    }
+}
 
 .side-nav-container {
     height: 100%;
@@ -171,6 +190,7 @@ input {
     margin-top: 15px;
     border: 15px solid red;
 }
+
 .right-button-wrapper {
     height: 70px;
     width: 70px;
