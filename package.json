@@ -32,7 +32,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.0",
-    "massive": "^3.0.0",
+    "massive": "^3.1.0",
     "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "passport-auth0": "^0.6.0"

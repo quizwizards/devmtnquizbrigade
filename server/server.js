@@ -7,6 +7,7 @@ const cors = require('cors');
 const Auth0Strategy = require('passport-auth0');
 const passport = require('passport');
 const axios = require('axios');
+const massive = require('massive');
 const session = require('express-session');
 const { getJSAll, getJSBasic, getJSAdvanced, getCss, getHtml, inc, dec, addAnswer } = require('./Controllers/apiController.js');
 
@@ -15,6 +16,8 @@ app.use(express.static(__dirname + './../public'));
 app.use(bodyParser.json());
 app.use(cors());
 
+
+
 app.use(session({
     resave: true,
     saveUninitialized: true,
@@ -22,6 +25,12 @@ app.use(session({
 }))
 app.use(passport.initialize());
 app.use(passport.session());
+console.log(process.env.URL)
+massive(process.env.LOCAL_DB).then(db => {
+  app.set('db', db);
+}).catch(err => {
+    console.log('\n\n DB connect error >> ', err)
+  });
 
 //MIDDLEWARE
 const checkAuthed = (req, res, next) => {
