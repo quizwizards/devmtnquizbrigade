@@ -1,7 +1,6 @@
 CREATE TABLE users (
     id varchar PRIMARY KEY,
-    first_name text,
-    last_name text
+    display_name text
 )
 
 CREATE TABLE quiz (
