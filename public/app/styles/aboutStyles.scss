@@ -1,0 +1,33 @@
+h2 {
+  font-size: 20px;
+}
+
+.main-content-wrapper {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: space-around;
+    padding: 100px;
+}
+
+.profile-container {
+  background-color: grey;
+  height: 50vh;
+  width: 50vw;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-around;
+  margin: 10px;
+  flex-direction: column;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  margin-top: 20px;
+}
