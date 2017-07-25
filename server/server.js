@@ -26,7 +26,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 console.log(process.env.URL)
-massive(process.env.LOCAL_DB).then(db => {
+massive(process.env.ELEPHANT_DB).then(db => {
   app.set('db', db);
 }).catch(err => {
     console.log('\n\n DB connect error >> ', err)
