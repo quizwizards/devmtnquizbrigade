@@ -97,6 +97,14 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
         }
     }
 
+    $scope.saveSession = function() {
+        console.log('state params: ', $stateParams.id);
+        flashCardSvc.saveSession($stateParams).then(function(response) {
+            console.log('save session: ', response)
+            console.log(response);
+        })
+    }
+
     $scope.recJsAllData = function () {
         flashCardSvc.getJavascriptAll().then(function (response) {
             counter.count = 0;

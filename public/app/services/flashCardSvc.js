@@ -69,4 +69,11 @@ angular.module('group-project').service('flashCardSvc', function ($http) {
             data: data
         })
     }
+    this.saveSession = (data) => {
+        return $http({
+            url: '/api/saveSession',
+            method: 'POST',
+            data: data
+        })
+    }
 })
