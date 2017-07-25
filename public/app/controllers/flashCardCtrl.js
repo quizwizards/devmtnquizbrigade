@@ -27,7 +27,9 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
     $scope.wrongChecked = false;
     $scope.counter;
     $scope.arrayLength;
-    $scope.data = {progress: 0};
+    $scope.data = {
+        progress: 0
+    };
 
 
 
@@ -74,21 +76,20 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
 
     $scope.checkType = function () {
         var trainingType = $stateParams.id;
-        console.log(trainingType)
         switch (trainingType) {
-            case 'allJS':
+            case 'JavaScript':
                 $scope.recJsAllData();
                 break;
-            case 'basicJS':
+            case 'JavaScript Basic':
                 $scope.recJsBasicData();
                 break;
-            case 'advancedJS':
+            case 'JavaScript Advanced':
                 $scope.recJsAdvancedData();
                 break;
-            case 'css':
+            case 'CSS':
                 $scope.recCssData();
                 break;
-            case 'html':
+            case 'HTML':
                 $scope.recHtmlData();
                 break;
             default:
@@ -97,9 +98,9 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
         }
     }
 
-    $scope.saveSession = function() {
+    $scope.saveSession = function () {
         console.log('state params: ', $stateParams.id);
-        flashCardSvc.saveSession($stateParams).then(function(response) {
+        flashCardSvc.saveSession($stateParams).then(function (response) {
             console.log('save session: ', response)
             console.log(response);
         })
@@ -203,4 +204,20 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
         })
     }
 
+    $scope.getProfile = function () {
+        console.log('firing getProfile')
+        flashCardSvc.getProfile().then(function (response) {
+            console.log('profile response: ', response)
+            $scope.userProfile = response.data.user.display_name;
+            $scope.quizes = response.data.data
+        });
+    }
+    $scope.getProfile();
+
+    $scope.restartSession = function(value) {
+        console.log(value)
+        flashCardSvc.restartSession(value).then(function(response) {
+            console.log(response);
+        })
+    }
 })

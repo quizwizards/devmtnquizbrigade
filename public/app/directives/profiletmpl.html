@@ -1,6 +1,6 @@
 <div class='profile-page-container'>
 
-    <h1>Welcome Back (User)</h1>
+    <h1>Welcome Back {{userProfile}}</h1>
 
     </hr>
 
@@ -8,7 +8,14 @@
 
     <div class='sessions-container'>
 
-        <div>Display Sessions</div>
+        <div>Display Sessions
+            <ul>
+                <div class="session-button"ng-repeat="quiz in quizes">
+                    <p>{{quiz.quiz_name}}</p>
+                    <button ng-model="quiz.quiz_name" ng-click="restartSession(quiz)">{{quiz.quiz_name}}</button>
+                </div>
+            </ul>
+        </div>
 
         <div>Button to continue</div>
 

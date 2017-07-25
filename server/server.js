@@ -145,15 +145,33 @@ app.post('/api/saveSession', function (req, res, next) {
     });
 })
 
+app.post('/api/restartSession', function (req, res, next) {
+    console.log('restart data', req.body.data)
+})
+
+app.get('/api/getUserData', function(req, res, next) {
+    let db = app.get('db');
+    let auth0id = req.user.id;
+    console.log('fired');
+    db.getAllQuizesByUser([auth0id]).then(function(response) {
+        res.status(200).send({
+            user: req.user,
+            data: response
+        })
+    })
+})
+
 app.get('/api/login', passport.authenticate('auth0'));
 
 app.get('/auth/callback',
     passport.authenticate('auth0', {
-        successRedirect: '/#/getstarted'
+        successRedirect: '/#/profile'
     }),
     function (req, res) {
         res.status(200).send(req.user);
     });
+
+
 
 app.listen(app.get('port'), () => {
     console.log(`Listening on port ${app.get('port')}`);

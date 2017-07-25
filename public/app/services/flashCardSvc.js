@@ -6,7 +6,6 @@ angular.module('group-project').service('flashCardSvc', function ($http) {
             url: '/api/getJSAll',
             method: 'GET'
         }).then(res => {
-            console.log("SERVICE: ", res)
             return res
         })
     }
@@ -72,6 +71,21 @@ angular.module('group-project').service('flashCardSvc', function ($http) {
     this.saveSession = (data) => {
         return $http({
             url: '/api/saveSession',
+            method: 'POST',
+            data: data
+        })
+    }
+    this.getProfile = () => {
+        return $http({
+            url: '/api/getUserData',
+            method: 'GET'
+        }).then(res => {
+            return res
+        })
+    }
+    this.restartSession = (data) => {
+        return $http({
+            url: '/api/restartSession',
             method: 'POST',
             data: data
         })
