@@ -29,4 +29,12 @@ angular.module('group-project', ['ui.router']).config(function($stateProvider, $
             url: '/start',
             templateUrl: './app/views/start.html'
         })
+        .state('about', {
+            url: '/about',
+            templateUrl: './app/views/about.html'
+        })
+        .state('profile', {
+            url: '/profile',
+            templateUrl: './app/views/profile.html'
+        })
 })
