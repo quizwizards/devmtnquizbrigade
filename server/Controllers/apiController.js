@@ -187,5 +187,13 @@ module.exports = {
         req.session.cards[index].wrong = wrong;
         res.status(200).send('ok');
 
+    },
+    addSession: function(req, res, next) {
+        let auth0id = req.user.id;
+        let quizName = req.body.id;
+        let data = req.session.cards;
+        app.get('db').createQuiz([auth0id, quizName, data]).then(function(response) {
+            res.send('ok');
+        })
     }
 }

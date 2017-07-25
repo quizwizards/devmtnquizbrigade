@@ -1,0 +1,1 @@
+insert into users (id, display_name) values ($1, $2) returning id, display_name;

@@ -13,7 +13,7 @@ const basePath = './public/app';
 const paths = {
     jsSrc: [`${basePath}/app.js`, `${basePath}/*js`, `${basePath}/**/*.js`],
     scssSrc: [`${basePath}/styles/*.scss`, `${basePath}/styles/*.css`],
-    server: './server/server.js'
+    server: 'server/server.js'
 };
 
 // DEFINE TASKS ===================================

@@ -1,6 +1,10 @@
 <div class='card-slider-display-main'>
     <side-nav class="side-nav-container"></side-nav>
     <div class='card-container'>
+        <div class="progress-bar">
+            <progress ng-show="showCard" value="{{data.progress}}" max="100"></progress>
+            <div>{{counter}} <span ng-show="showCard">/</span> {{arrayLength}}</div>
+        </div>
         <div class='card-with-arrows'>
             <div class="card-button-wrapper" ng-show="showCard">
                 <div id="card-wrapper">
@@ -35,6 +39,7 @@
             <h1>START TRAINING</h1>
             <button ng-click="checkType()">START</button>
         </div>
+        <button id="save" ng-click="saveSession()">Save Progress</button>
     </div>
 
 </div>
