@@ -37,4 +37,8 @@ angular.module('group-project', ['ui.router']).config(function($stateProvider, $
             url: '/profile',
             templateUrl: './app/views/profile.html'
         })
+        .state('flashCardsResume', {
+            url: '/flash-cards-resume/:id',
+            templateUrl: './app/views/flashCardsResume.html'
+        })
 })

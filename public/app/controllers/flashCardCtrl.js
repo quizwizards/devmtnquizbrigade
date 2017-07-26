@@ -6,6 +6,8 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
 
     var arrayLength;
 
+    var responseId;
+
     $scope.showSubMenu = false;
 
     $scope.showMenu = () => {
@@ -98,11 +100,28 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
         }
     }
 
+    $scope.checkTypeRestart = function() {
+        $scope.recRestartData();
+    }
+
     $scope.saveSession = function () {
         console.log('state params: ', $stateParams.id);
         flashCardSvc.saveSession($stateParams).then(function (response) {
             console.log('save session: ', response)
             console.log(response);
+        })
+    }
+
+    $scope.recRestartData = function() {
+        flashCardSvc.getRestart().then(function(response) {
+            console.log("recrestart: ", response);
+            counter.count = 0;
+            arrayLength = response.data.length;
+            $scope.startData = response.data.firstCard;
+            $scope.showCard = true;
+            $scope.startButton = false;
+            $scope.counter = counter.count + 1;
+            $scope.arrayLength = arrayLength;
         })
     }
 
@@ -214,10 +233,15 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
     }
     $scope.getProfile();
 
-    $scope.restartSession = function(value) {
-        console.log(value)
-        flashCardSvc.restartSession(value).then(function(response) {
-            console.log(response);
-        })
+    $scope.restartSession = function (value) {
+        console.log('value', value);
+        flashCardSvc.restartSession(value).then(function (response) {
+            console.log('response from restart: ', response);
+            responseId = response.data.id;
+            }).then(function() {
+                $state.go('flashCardsResume', {
+                id: responseId
+                })
+            })
     }
 })

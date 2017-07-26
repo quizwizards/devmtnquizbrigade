@@ -90,4 +90,12 @@ angular.module('group-project').service('flashCardSvc', function ($http) {
             data: data
         })
     }
+    this.getRestart = () => {
+        return $http({
+            url: '/api/getRestart',
+            method: 'GET'
+        }).then(res => {
+            return res
+        })
+    }
 })

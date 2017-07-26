@@ -12,7 +12,7 @@
             <ul>
                 <div class="session-button"ng-repeat="quiz in quizes">
                     <p>{{quiz.quiz_name}}</p>
-                    <button ng-model="quiz.quiz_name" ng-click="restartSession(quiz)">{{quiz.quiz_name}}</button>
+                    <button ui-sref="flashCards" ng-model="quiz.quiz_name" ng-click="restartSession(quiz)">{{quiz.quiz_name}}</button>
                 </div>
             </ul>
         </div>
