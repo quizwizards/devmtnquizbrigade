@@ -1,17 +1,22 @@
-<div class='profile-page-container'>
+<div class="profile-page-wrapper">
+    <side-nav class="side-nav-container"></side-nav>
+    <div class='profile-page-container'>
 
-    <h1>Welcome Back (User)</h1>
 
-    </hr>
+        <h1>Welcome Back {{userProfile}}</h1>
 
-    <h2>Current Sessions</h2>
+        </hr>
 
-    <div class='sessions-container'>
+        <h2>Current Sessions</h2>
 
-        <div>Display Sessions</div>
-
-        <div>Button to continue</div>
+        <div class='sessions-container'>
+            <ul>
+                <div class="session-button" ng-repeat="quiz in quizes">
+                    <p>{{quiz.quiz_name}}</p>
+                    <button ui-sref="flashCards" ng-model="quiz.quiz_name" ng-click="restartSession(quiz)">Continue</button>
+                </div>
+            </ul>
+        </div>
 
     </div>
-
 </div>
