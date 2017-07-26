@@ -44,7 +44,6 @@ massive(process.env.LOCAL_DB).then(db => {
 
 //MIDDLEWARE
 const checkAuthed = (req, res, next) => {
-    console.log(req.isAuthenticated())
     if (!req.isAuthenticated()) {
         return res.status(401).send();
     } else {
@@ -52,6 +51,15 @@ const checkAuthed = (req, res, next) => {
 
     }
 };
+
+const checkLogin = (req,res, next) => {
+    console.log(req.isAuthenticated())
+    if(!req.isAuthenticated()){
+        next()
+    } else {
+        res.redirect('/#/profile')
+    }
+}
 
 passport.use(new Auth0Strategy({
         domain: process.env.DOMAIN,
@@ -176,7 +184,7 @@ app.get('/api/getUserData', function(req, res, next) {
     })
 })
 
-app.get('/api/login', passport.authenticate('auth0'));
+app.get('/api/login', checkLogin, passport.authenticate('auth0'));
 
 app.get('/auth/callback',
     passport.authenticate('auth0', {

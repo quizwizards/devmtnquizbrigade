@@ -116,6 +116,8 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
         flashCardSvc.getRestart().then(function(response) {
             console.log("recrestart: ", response);
             counter.count = 0;
+            $scope.rightChecked = response.data.firstCard.right;
+            $scope.wrongChecked = response.data.firstCard.wrong;
             arrayLength = response.data.length;
             $scope.startData = response.data.firstCard;
             $scope.showCard = true;
