@@ -2,6 +2,14 @@ h2 {
   font-size: 20px;
 }
 
+.about-us {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 50px; 
+}
+
 .main-content-wrapper {
     display: flex;
     align-content: center;

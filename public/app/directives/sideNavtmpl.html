@@ -1,6 +1,6 @@
   <div class='side-nav'>
         <ul>
-            <a ng-click="showMenu()">Javascript</a>
+            <a ng-click="showMenu()" class='side-nav-effect'>Javascript</a>
                 <div ng-show='showSubMenu' class='sub-menu'>
                 <a ui-sref="flashCards({id: 'JavaScript Basic'})" ng-click="reset()">Beginner</a>
                 <a ui-sref="flashCards({id: 'JavaScript Advanced'})" ng-click="reset()">Advanced</a>
@@ -9,4 +9,4 @@
             <a ui-sref="flashCards({id: 'CSS'})" ng-click="reset()">CSS</a>
             <a ui-sref="flashCards({id: 'HTML'})" ng-click="reset()">HTML</a>
         </ul>
-    </div>
+</div>

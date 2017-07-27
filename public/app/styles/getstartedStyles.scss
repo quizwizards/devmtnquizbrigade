@@ -18,6 +18,10 @@ h1 {
         font-size: 2.5em;
     }
 
+h3 {
+    color: white;
+}
+
 p {
     margin: 50px;
 }
@@ -54,7 +58,18 @@ button {
         padding: 15px 0;
         list-style: none;
         border-bottom: 1px solid #444444;
+        width: 10vw;
     }
+}
+
+.side-nav-effect {
+    // transition: 0.4s;
+}
+
+.side-nav-effect:hover {
+    background-color: #fff;
+    color: #444444;
+    // padding: 20px 10px;
 }
 
 .sub-menu {
