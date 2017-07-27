@@ -1,5 +1,5 @@
 <div class='card-slider-display-main'>
-    <side-nav class="side-nav-container"></side-nav>
+      <side-nav class="side-nav-container-resume"></side-nav>  
     <div class='card-container'>
         <div class="progress-bar">
             <progress ng-show="showCard" value="{{data.progress}}" max="100"></progress>
@@ -35,11 +35,25 @@
                 </div>
             </div>
         </div>
-        <div class="start-button" ng-show="startButton">
+        <!-- <div class="start-button" ng-show="startButton">
             <h1>START TRAINING</h1>
             <button ng-click="checkTypeRestart()">START</button>
         </div>
-        <button id="save" ng-click="saveSession()" ng-show="showCard">Save Progress</button>
+        <button id="save" ng-click="saveSession()" ng-show="showCard">Save Progress</button> -->
+        <div class="start-button" ng-show="startButton">
+            <h1>Instructions</h1>
+            <div class='instruction-container'>
+            <p class='flash-card-instructions'>Based off what topic you selected a set of flashcards will be generated for you to study. <br>
+                You will be able to select ones you get right and wrong by toggling the two boxes located below the flashcard.
+                Enjoy!
+            </p>
+            </div>
+            <button ng-click="checkTypeRestart()">START</button>
+        </div>
+        <div class="save-back-buttons" ng-show="showCard">
+            <button id="return-to-profile" ng-click="returnToProfile()">Back to Profile</button>
+            <button id="save" ng-click="saveSession()">Save Progress</button>
+        </div>
     </div>
 
 </div>

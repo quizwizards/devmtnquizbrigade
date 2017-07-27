@@ -36,7 +36,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-massive(process.env.LOCAL_DB).then(db => {
+massive(process.env.ELEPHANT_SQL).then(db => {
     app.set('db', db);
 }).catch(err => {
     console.log('\n\n DB connect error >> ', err)
@@ -185,6 +185,11 @@ app.get('/api/getUserData', function(req, res, next) {
 })
 
 app.get('/api/login', checkLogin, passport.authenticate('auth0'));
+
+app.get('/api/logout', function(req, res) {
+    req.logout();
+    res.redirect('/');
+})
 
 app.get('/auth/callback',
     passport.authenticate('auth0', {

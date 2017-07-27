@@ -45,7 +45,10 @@
             </div>
             <button ng-click="checkType()">START</button>
         </div>
-        <button id="save" ng-click="saveSession()" ng-show="showCard">Save Progress</button>
+        <div class="save-back-buttons" ng-show="showCard">
+            <button id="return-to-profile" ng-click="returnToProfile()">Back to Profile</button>
+            <button id="save" ng-click="saveSession()">Save Progress</button>
+        </div>
     </div>
 
 </div>

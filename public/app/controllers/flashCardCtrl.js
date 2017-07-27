@@ -25,8 +25,8 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
     $scope.backButtonShow = false;
     $scope.showCard = false;
     $scope.startButton = true;
-    $scope.rightChecked = false;
-    $scope.wrongChecked = false;
+    $scope.rightChecked;
+    $scope.wrongChecked;
     $scope.counter;
     $scope.arrayLength;
     $scope.data = {
@@ -101,7 +101,9 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
     }
 
     $scope.checkTypeRestart = function() {
+        console.log($scope.rightChecked, $scope.wrongChecked)
         $scope.recRestartData();
+        console.log($scope.rightChecked, $scope.wrongChecked)
     }
 
     $scope.saveSession = function () {
@@ -110,6 +112,14 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
             console.log('save session: ', response)
             console.log(response);
         })
+    }
+
+    $scope.returnToProfile = function() {
+        if (confirm('Save progress before continuing. All unsaved progress will be deleted.') === true) {
+            $state.go('profile')
+        } else {
+            console.log('user cancelled')
+        }
     }
 
     $scope.recRestartData = function() {

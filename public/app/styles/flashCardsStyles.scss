@@ -5,6 +5,7 @@ $nav-background-color: #444444;
     height: 80vh;
     background-color: whitesmoke;
     display: inline-block;
+    position: relative;
 }
 
 .card-container {
@@ -96,11 +97,20 @@ $nav-background-color: #444444;
     background-color: $dev-mtn-blue;
     color: white;
     height: 50px;
+    width: 150px;    
+}
+#return-to-profile {
+    background-color: $dev-mtn-blue;
+    color: white;
+    height: 50px;
     width: 150px;
-    margin: 25px;
+    margin-right: 10px;
+}
+.save-back-buttons {
     position: absolute;
     bottom: 30px;
-    right: -12px;
+    display: inline-block;
+    right: 20px;
 }
 
 label {
@@ -171,10 +181,16 @@ input {
     width: 15vw;
     float: left;
 }
+.side-nav-container-resume {
+    height: 100%;
+    width: 15vw;
+    float: left;
+    display: none;
+}
 
 .start-button {
     position: absolute;
-    top: 40%;
+    top: 32%;
     display: flex;
     flex-direction: column;
     align-items: center;
