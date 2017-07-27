@@ -7,6 +7,6 @@ CREATE TABLE quiz (
     id serial PRIMARY KEY,
     auth0_id varchar,
     quiz_name text,
-    data varchar,
+    data json,
     foreign key (auth0_id) references users(id)
 )

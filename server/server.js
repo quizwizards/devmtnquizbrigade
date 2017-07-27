@@ -44,7 +44,6 @@ massive(process.env.LOCAL_DB).then(db => {
 
 //MIDDLEWARE
 const checkAuthed = (req, res, next) => {
-    console.log(req.isAuthenticated())
     if (!req.isAuthenticated()) {
         return res.status(401).send();
     } else {
@@ -52,6 +51,15 @@ const checkAuthed = (req, res, next) => {
 
     }
 };
+
+const checkLogin = (req,res, next) => {
+    console.log(req.isAuthenticated())
+    if(!req.isAuthenticated()){
+        next()
+    } else {
+        res.redirect('/#/profile')
+    }
+}
 
 passport.use(new Auth0Strategy({
         domain: process.env.DOMAIN,
@@ -105,6 +113,13 @@ passport.deserializeUser(function (userB, done) {
 
 app.get('/api/checkRestriction', checkAuthed)
 
+app.get('/api/getRestart', function(req, res, next) {
+    res.status(200).send({
+        firstCard: req.session.cards[0],
+        length: req.session.cards.length
+    })
+})
+
 app.get('/api/getJSAll', getJSAll);
 
 app.get('/api/getJSBasic', getJSBasic);
@@ -125,17 +140,18 @@ app.post('/api/saveSession', function (req, res, next) {
     let auth0id = req.user.id;
     let quizName = req.body.id;
     let data = req.session.cards;
+    let dataString = JSON.stringify(data)
     let db = app.get('db');
     db.getQuizByUser([auth0id, quizName]).then((response) => {
         let quiz = response[0];
         if (!quiz) {
             console.log('CREATING QUIZ');
-            db.createQuiz([auth0id, quizName, data]).then(function (response) {
+            db.createQuiz([auth0id, quizName, dataString]).then(function (response) {
                 res.status(200).send('QUIZ CREATED');
             })
         } else {
             console.log('UPDATING QUIZ');
-            db.updateQuiz([data, auth0id, quizName]).then(function (response) {
+            db.updateQuiz([dataString, auth0id, quizName]).then(function (response) {
                 console.log('Quiz Updated')
                 res.status(200).send('QUIZ UPDATED')
             })
@@ -145,15 +161,40 @@ app.post('/api/saveSession', function (req, res, next) {
     });
 })
 
-app.get('/api/login', passport.authenticate('auth0'));
+app.post('/api/restartSession', function (req, res, next) {
+    req.session.cards = req.body.data;
+    req.session.quiz_name = req.body.quiz_name
+    console.log('req.session: ', req.session.card);
+    res.status(200).send({
+        firstCard: req.session.cards[0],
+        length: req.session.cards.length,
+        id: req.session.quiz_name
+    })
+})
+
+app.get('/api/getUserData', function(req, res, next) {
+    let db = app.get('db');
+    let auth0id = req.user.id;
+    console.log('fired');
+    db.getAllQuizesByUser([auth0id]).then(function(response) {
+        res.status(200).send({
+            user: req.user,
+            data: response
+        })
+    })
+})
+
+app.get('/api/login', checkLogin, passport.authenticate('auth0'));
 
 app.get('/auth/callback',
     passport.authenticate('auth0', {
-        successRedirect: '/#/getstarted'
+        successRedirect: '/#/profile'
     }),
     function (req, res) {
         res.status(200).send(req.user);
     });
+
+
 
 app.listen(app.get('port'), () => {
     console.log(`Listening on port ${app.get('port')}`);
