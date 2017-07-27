@@ -32,6 +32,9 @@ angular.module('group-project', ['ui.router']).config(function ($stateProvider, 
     }).state('profile', {
         url: '/profile',
         templateUrl: './app/views/profile.html'
+    }).state('flashCardsResume', {
+        url: '/flash-cards-resume/:id',
+        templateUrl: './app/views/flashCardsResume.html'
     });
 });
 'use strict';
@@ -43,6 +46,8 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
     };
 
     var arrayLength;
+
+    var responseId;
 
     $scope.showSubMenu = false;
 
@@ -65,7 +70,9 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
     $scope.wrongChecked = false;
     $scope.counter;
     $scope.arrayLength;
-    $scope.data = { progress: 0 };
+    $scope.data = {
+        progress: 0
+    };
 
     $scope.reset = function () {
         $scope.showCard = false;
@@ -109,21 +116,20 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
 
     $scope.checkType = function () {
         var trainingType = $stateParams.id;
-        console.log(trainingType);
         switch (trainingType) {
-            case 'allJS':
+            case 'JavaScript':
                 $scope.recJsAllData();
                 break;
-            case 'basicJS':
+            case 'JavaScript Basic':
                 $scope.recJsBasicData();
                 break;
-            case 'advancedJS':
+            case 'JavaScript Advanced':
                 $scope.recJsAdvancedData();
                 break;
-            case 'css':
+            case 'CSS':
                 $scope.recCssData();
                 break;
-            case 'html':
+            case 'HTML':
                 $scope.recHtmlData();
                 break;
             default:
@@ -132,11 +138,30 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
         }
     };
 
+    $scope.checkTypeRestart = function () {
+        $scope.recRestartData();
+    };
+
     $scope.saveSession = function () {
         console.log('state params: ', $stateParams.id);
         flashCardSvc.saveSession($stateParams).then(function (response) {
             console.log('save session: ', response);
             console.log(response);
+        });
+    };
+
+    $scope.recRestartData = function () {
+        flashCardSvc.getRestart().then(function (response) {
+            console.log("recrestart: ", response);
+            counter.count = 0;
+            $scope.rightChecked = response.data.firstCard.right;
+            $scope.wrongChecked = response.data.firstCard.wrong;
+            arrayLength = response.data.length;
+            $scope.startData = response.data.firstCard;
+            $scope.showCard = true;
+            $scope.startButton = false;
+            $scope.counter = counter.count + 1;
+            $scope.arrayLength = arrayLength;
         });
     };
 
@@ -237,6 +262,28 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
             console.log(response);
         });
     };
+
+    $scope.getProfile = function () {
+        console.log('firing getProfile');
+        flashCardSvc.getProfile().then(function (response) {
+            console.log('profile response: ', response);
+            $scope.userProfile = response.data.user.display_name;
+            $scope.quizes = response.data.data;
+        });
+    };
+    $scope.getProfile();
+
+    $scope.restartSession = function (value) {
+        console.log('value', value);
+        flashCardSvc.restartSession(value).then(function (response) {
+            console.log('response from restart: ', response);
+            responseId = response.data.id;
+        }).then(function () {
+            $state.go('flashCardsResume', {
+                id: responseId
+            });
+        });
+    };
 });
 'use strict';
 
@@ -264,7 +311,8 @@ angular.module('group-project').directive('getStarted', function () {
 
 angular.module('group-project').directive('profile', function () {
     return {
-        templateUrl: './app/directives/profiletmpl.html'
+        templateUrl: './app/directives/profiletmpl.html',
+        controller: 'flashCardCtrl'
     };
 });
 'use strict';
@@ -284,7 +332,6 @@ angular.module('group-project').service('flashCardSvc', function ($http) {
             url: '/api/getJSAll',
             method: 'GET'
         }).then(function (res) {
-            console.log("SERVICE: ", res);
             return res;
         });
     };
@@ -352,6 +399,29 @@ angular.module('group-project').service('flashCardSvc', function ($http) {
             url: '/api/saveSession',
             method: 'POST',
             data: data
+        });
+    };
+    this.getProfile = function () {
+        return $http({
+            url: '/api/getUserData',
+            method: 'GET'
+        }).then(function (res) {
+            return res;
+        });
+    };
+    this.restartSession = function (data) {
+        return $http({
+            url: '/api/restartSession',
+            method: 'POST',
+            data: data
+        });
+    };
+    this.getRestart = function () {
+        return $http({
+            url: '/api/getRestart',
+            method: 'GET'
+        }).then(function (res) {
+            return res;
         });
     };
 });

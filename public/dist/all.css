@@ -569,6 +569,16 @@ ul {
   -ms-flex-pack: distribute;
   justify-content: space-around;
   width: 100vw; }
+  .sessions-container ul div {
+    line-height: 20px; }
+
+.session-button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center; }
 
 hr {
   display: block;
@@ -580,3 +590,20 @@ hr {
 
 h2 {
   padding: 30px; }
+
+.profile-page-wrapper {
+  background-size: cover;
+  width: 100vw;
+  text-align: center;
+  display: inline-block;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row; }

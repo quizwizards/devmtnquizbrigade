@@ -13,6 +13,16 @@
     align-items: flex-start;
     justify-content: space-around;
     width: 100vw;
+    ul {
+        div {
+            line-height: 20px;
+        }
+    }
+}
+
+.session-button {
+    display: flex;
+    align-items: center;
 }
 
 hr {
@@ -26,4 +36,15 @@ hr {
 
 h2 {
     padding: 30px;
+}
+.profile-page-wrapper {
+    
+    background-size: cover;
+    width: 100vw;
+    text-align: center;
+    display: inline-block;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+    flex-direction: row;
 }
