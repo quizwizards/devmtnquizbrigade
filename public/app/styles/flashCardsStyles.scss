@@ -9,7 +9,7 @@ $nav-background-color: #444444;
 
 .card-container {
     height: 100%;
-    width: 85vw;
+    width: 100vw;
     float: right;
     display: flex;
     justify-content: center;
@@ -174,12 +174,12 @@ input {
 
 .start-button {
     position: absolute;
-    top: 50%;
+    top: 40%;
     display: flex;
     flex-direction: column;
     align-items: center;
     line-height: 30px;
-    left: 53%;
+    // left: 53%;
 }
 
 .wrong-button-wrapper {
@@ -198,4 +198,15 @@ input {
     margin-left: 50px;
     margin-top: 15px;
     border: 15px solid green;
+}
+
+.instruction-container {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.flash-card-instructions {
+    text-align: center;
 }

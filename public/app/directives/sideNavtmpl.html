@@ -1,13 +1,13 @@
-  <div class='side-nav'>
-        <h3>Menu</h3>
+<div class='side-nav'>
+        <h3></h3>
         <ul>
-            <a ng-click="showMenu()">Javascript</a>
+            <a ng-click="showMenu()" class='side-nav-effect'>Javascript</a>
                 <div ng-show='showSubMenu' class='sub-menu'>
-                <a ui-sref="flashCards({id: 'advancedJS'})" ng-click="reset()">Beginner</a>
-                <a ui-sref="flashCards({id: 'basicJS'})" ng-click="reset()">Advanced</a>
-                <a ui-sref="flashCards({id: 'allJS'})" ng-click="reset()">All</a>
+                <a ui-sref="flashCards({id: 'advancedJS'})" ng-click="reset()" class='side-nav-effect'>Beginner</a>
+                <a ui-sref="flashCards({id: 'basicJS'})" ng-click="reset()" class='side-nav-effect'>Advanced</a>
+                <a ui-sref="flashCards({id: 'allJS'})" ng-click="reset()" class='side-nav-effect'>All</a>
                 </div>
-            <a ui-sref="flashCards({id: 'css'})" ng-click="reset()">CSS</a>
-            <a ui-sref="flashCards({id: 'html'})" ng-click="reset()">HTML</a>
+            <a ui-sref="flashCards({id: 'css'})" ng-click="reset()" class='side-nav-effect'>CSS</a>
+            <a ui-sref="flashCards({id: 'html'})" ng-click="reset()" class='side-nav-effect'>HTML</a>
         </ul>
-    </div>
+</div>
