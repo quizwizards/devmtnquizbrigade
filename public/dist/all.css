@@ -518,9 +518,10 @@ ul {
   transition: 0.4s; }
 
 .linkeffect:hover {
-  background-color: #fff;
-  color: #444444;
-  padding: 24px 10px; }
+  color: #2aabe2;
+  -webkit-transition: .3s;
+  transition: .3s; }
+
 
 .pagelinks {
   display: -webkit-box;
@@ -539,46 +540,41 @@ ul {
   background-color: #444444; }
 
 .profile-page-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
-  -ms-flex-line-pack: center;
   align-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  padding: 30px; }
+  width: 84vw;
+  margin-top: 125px; }
+
 
 .sessions-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-box-align: start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  width: 100vw; }
-  .sessions-container ul div {
-    line-height: 20px; }
+  flex-direction: column;
+  height: 55vh;
+  width: 45vw;
+  justify-content: space-around; 
+  }
+
 
 .session-button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center; }
+  justify-content: space-between; 
+  }
+
+  .session-button span {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 44px;
+    color: gray; }
 
 hr {
   display: block;
@@ -592,18 +588,10 @@ h2 {
   padding: 30px; }
 
 .profile-page-wrapper {
-  background-size: cover;
-  width: 100vw;
-  text-align: center;
-  display: inline-block;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -ms-flex-line-pack: center;
-  align-content: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row; }
+  border: black solid 1px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex; }
+
+#profile-side-nav {
+  height: 90vh; }

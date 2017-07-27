@@ -1,5 +1,7 @@
 <div class="profile-page-wrapper">
-    <side-nav class="side-nav-container"></side-nav>
+    <div id='profile-side-nav'>
+        <side-nav class="side-nav-container"></side-nav>
+    </div>
     <div class='profile-page-container'>
 
 
@@ -10,12 +12,10 @@
         <h2>Current Sessions</h2>
 
         <div class='sessions-container'>
-            <ul>
                 <div class="session-button" ng-repeat="quiz in quizes">
-                    <p>{{quiz.quiz_name}}</p>
+                    <span>{{quiz.quiz_name}}</span>
                     <button ui-sref="flashCards" ng-model="quiz.quiz_name" ng-click="restartSession(quiz)">Continue</button>
                 </div>
-            </ul>
         </div>
 
     </div>

@@ -44,9 +44,12 @@ ul {
 }
 
 .linkeffect:hover {
-    background-color: #fff;
-    color: #444444;
-    padding: 24px 10px;
+    // background-color: #fff;
+    // color: #444444;
+    // padding: 24px 10px;
+    // font-size: 24px;
+    color: $dev-mtn-blue;
+    transition: .3s;
 }
 
 .pagelinks{
