@@ -9,6 +9,41 @@ const passport = require('passport');
 const axios = require('axios');
 const massive = require('massive');
 const session = require('express-session');
+
+
+app.set('port', process.env.PORT || 3000)
+app.use(express.static(__dirname + './../public'));
+app.use(bodyParser.json());
+app.use(cors());
+
+console.log(process.env.LOCAL_DB)
+
+massive(process.env.LOCAL_DB).then(db => {
+    app.set('db', db);
+}).catch(err => {
+    console.log('\n\n DB connect error >> ', err)
+});
+
+
+const checkAuthed = (req, res, next) => {
+    console.log(req.isAuthenticated())
+    if (!req.isAuthenticated()) {
+        return res.status(401).send();
+    } else {
+        return res.status(200).send("Authed")
+
+    }
+};
+
+
+app.use(session({
+    resave: true,
+    saveUninitialized: true,
+    secret: process.env.SESSION_SECRET
+}))
+app.use(passport.initialize());
+app.use(passport.session());
+
 const {
     getJSAll,
     getJSBasic,
@@ -21,38 +56,11 @@ const {
     addSession
 } = require('./Controllers/apiController.js');
 
-app.set('port', process.env.PORT || 3000)
-app.use(express.static(__dirname + './../public'));
-app.use(bodyParser.json());
-app.use(cors());
 
 
-
-app.use(session({
-    resave: true,
-    saveUninitialized: true,
-    secret: process.env.SESSION_SECRET
-}))
-app.use(passport.initialize());
-app.use(passport.session());
-
-
-massive(process.env.LOCAL_DB).then(db => {
-    app.set('db', db);
-}).catch(err => {
-    console.log('\n\n DB connect error >> ', err)
-});
 
 //MIDDLEWARE
-const checkAuthed = (req, res, next) => {
-    console.log(req.isAuthenticated())
-    if (!req.isAuthenticated()) {
-        return res.status(401).send();
-    } else {
-        return res.status(200).send("Authed")
 
-    }
-};
 
 passport.use(new Auth0Strategy({
         domain: process.env.DOMAIN,

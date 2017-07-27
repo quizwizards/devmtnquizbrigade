@@ -26,6 +26,12 @@ angular.module('group-project', ['ui.router']).config(function ($stateProvider, 
     }).state('start', {
         url: '/start',
         templateUrl: './app/views/start.html'
+    }).state('about', {
+        url: '/about',
+        templateUrl: './app/views/about.html'
+    }).state('profile', {
+        url: '/profile',
+        templateUrl: './app/views/profile.html'
     });
 });
 'use strict';
@@ -234,6 +240,13 @@ angular.module('group-project').controller('flashCardCtrl', function ($scope, fl
 });
 'use strict';
 
+angular.module('group-project').directive('about', function () {
+    return {
+        templateUrl: './app/directives/abouttmpl.html'
+    };
+});
+'use strict';
+
 angular.module('group-project').directive('flashCards', function () {
     return {
         templateUrl: './app/directives/flashCards-tmpl.html',
@@ -245,6 +258,13 @@ angular.module('group-project').directive('flashCards', function () {
 angular.module('group-project').directive('getStarted', function () {
     return {
         templateUrl: './app/directives/getStarted-tmpl.html'
+    };
+});
+'use strict';
+
+angular.module('group-project').directive('profile', function () {
+    return {
+        templateUrl: './app/directives/profiletmpl.html'
     };
 });
 'use strict';
