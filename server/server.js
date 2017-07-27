@@ -1,7 +1,6 @@
 require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
-const config = require('./config');
 const app = module.exports = express();
 const cors = require('cors');
 const Auth0Strategy = require('passport-auth0');
