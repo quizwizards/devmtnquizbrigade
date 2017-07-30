@@ -187,7 +187,7 @@ app.get('/api/login', checkLogin, passport.authenticate('auth0'));
 
 app.get('/api/logout', function(req, res) {
     req.logout();
-    res.redirect('https://devmtnflashcards.herokuapp.com/#/');
+    res.redirect('/#/');
 })
 
 app.get('/auth/callback',
