@@ -12,6 +12,7 @@ const {
     getJSAll,
     getJSBasic,
     getJSAdvanced,
+    getReact,
     getCss,
     getHtml,
     inc,
@@ -124,6 +125,8 @@ app.get('/api/getJSAll', getJSAll);
 app.get('/api/getJSBasic', getJSBasic);
 
 app.get('/api/getJSAdvanced', getJSAdvanced);
+
+app.get('/api/getReact', getReact);
 
 app.get('/api/getCss', getCss);
 
