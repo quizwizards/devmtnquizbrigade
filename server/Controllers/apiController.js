@@ -110,6 +110,36 @@ module.exports = {
         })
     },
 
+    getReact: function (req, res, next) {
+        axios({
+            url: `https://api.quizlet.com/2.0/sets/218386881?client_id=${process.env.QUIZLET_KEY}&whitespace=1`,
+            method: 'GET'
+        }).then(function (resp) {
+            let data = resp.data.terms;
+
+            function getRandom(arrObj) {
+                let arr = [];
+                let finalArrOfObj = [];
+
+                for (let i = 0; i < data.length; i++) {
+                    arr.push(i);
+                }
+                let shuffledArr = shuffle(arr);
+
+                for (let j = 0; j < shuffledArr.length; j++) {
+                    finalArrOfObj.push(data[shuffledArr[j]]);
+                }
+                return finalArrOfObj
+            }
+
+            req.session.cards = getRandom(data);
+            res.status(200).send({
+                firstCard: req.session.cards[0],
+                length: req.session.cards.length
+            })
+        })
+    },
+
     getCss: function (req, res, next) {
         axios({
             url: `https://api.quizlet.com/2.0/sets/216076590?client_id=${process.env.QUIZLET_KEY}&whitespace=1`,
