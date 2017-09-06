@@ -62,14 +62,13 @@ h2 {
 
 .card-slider-display-main {
   width: 100vw;
-  height: 80vh;
   background-color: whitesmoke;
   display: inline-block;
   position: relative; }
 
 .card-container {
-  height: 100%;
   width: 100vw;
+  min-height: 75vh;
   float: right;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -96,7 +95,7 @@ h2 {
     background-color: whitesmoke;
     color: #2aabe2;
     width: 75px;
-    height: 50px;
+    height: 75px;
     -webkit-box-shadow: none;
     box-shadow: none;
     border: none;
@@ -167,9 +166,21 @@ h2 {
     height: 50px;
     width: 50px;
     margin: 25px; }
+  #button-wrapper #x_checked {
+    background-color: #2aabe2;
+    color: red;
+    height: 50px;
+    width: 50px;
+    margin: 25px; }
   #button-wrapper #plus {
     background-color: #2aabe2;
     color: white;
+    margin: 25px;
+    height: 50px;
+    width: 50px; }
+  #button-wrapper #plus_checked {
+    background-color: #2aabe2;
+    color: green;
     margin: 25px;
     height: 50px;
     width: 50px; }
@@ -283,8 +294,6 @@ input {
   display: none; }
 
 .start-button {
-  position: absolute;
-  top: 32%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -295,7 +304,11 @@ input {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  line-height: 30px; }
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  line-height: 30px;
+  margin-left: -68%; }
 
 .wrong-button-wrapper {
   height: 70px;
@@ -450,7 +463,6 @@ button {
   background: url("../app/assets/devmountain_class_pic.jpg") no-repeat;
   background-size: cover;
   width: 100%;
-  height: 47vh;
   color: white;
   text-align: center;
   display: -webkit-box;
@@ -465,7 +477,8 @@ button {
   flex-direction: column;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center; }
+  justify-content: center;
+  padding: 25px 0; }
   .home-page-title h1 {
     font-weight: 300;
     font-size: 2.5em; }
@@ -500,9 +513,9 @@ button {
   .about-section-main-wrapper p {
     text-align: center;
     width: 54vw;
-    height: 35vh;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 75px;
     padding-top: 25px;
     line-height: 34px;
     font-size: 23px; }
@@ -515,17 +528,19 @@ button {
   -ms-flex-align: space-around;
   align-items: space-around;
   margin-top: 10px;
+  margin-bottom: 125px;
   width: 100vw;
-  height: 60vh;
   display: flex;
   -ms-flex-pack: distribute;
   justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   color: gray;
   font-weight: 300;
   line-height: 25px; }
   .demo-block div {
     width: 48vw;
-    height: 48vh;
     border: solid black 1px; }
   .demo-block p {
     width: 35vw;
@@ -633,8 +648,9 @@ ul {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  height: 55vh;
-  width: 45vw; }
+  width: 45vw;
+  margin-bottom: 100px;
+  min-height: 65vh; }
   .sessions-container div {
     margin-bottom: 20px; }
 
@@ -671,6 +687,3 @@ h2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
-
-#profile-side-nav {
-  height: 90vh; }

@@ -2,15 +2,14 @@ $dev-mtn-blue: #2aabe2;
 $nav-background-color: #444444;
 .card-slider-display-main {
     width: 100vw;
-    height: 80vh;
     background-color: whitesmoke;
     display: inline-block;
     position: relative;
 }
 
 .card-container {
-    height: 100%;
     width: 100vw;
+    min-height: 75vh;
     float: right;
     display: flex;
     justify-content: center;
@@ -26,7 +25,7 @@ $nav-background-color: #444444;
         background-color: whitesmoke;
         color: $dev-mtn-blue;
         width: 75px;
-        height: 50px;
+        height: 75px;
         box-shadow: none;
         border: none;
         border-radius: 2px;
@@ -84,9 +83,23 @@ $nav-background-color: #444444;
         width: 50px;
         margin: 25px;
     }
+    #x_checked {
+        background-color: $dev-mtn-blue;
+        color: red;
+        height: 50px;
+        width: 50px;
+        margin: 25px;
+    }
     #plus {
         background-color: $dev-mtn-blue;
         color: white;
+        margin: 25px;
+        height: 50px;
+        width: 50px;
+    }
+    #plus_checked {
+        background-color: $dev-mtn-blue;
+        color: green;
         margin: 25px;
         height: 50px;
         width: 50px;
@@ -189,13 +202,12 @@ input {
 }
 
 .start-button {
-    position: absolute;
-    top: 32%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     line-height: 30px;
-    // left: 53%;
+    margin-left: -68%;
 }
 
 .wrong-button-wrapper {

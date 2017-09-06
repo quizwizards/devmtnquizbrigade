@@ -10,8 +10,9 @@
 .sessions-container {
     display: flex;
     flex-direction: column;
-    height: 55vh;
     width: 45vw;
+    margin-bottom: 100px;
+    min-height: 65vh;
     div {
         margin-bottom: 20px;
     }
@@ -54,5 +55,5 @@ h2 {
 }
 
 #profile-side-nav{
-    height: 90vh;
+
 }
